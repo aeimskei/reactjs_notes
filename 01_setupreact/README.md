@@ -161,8 +161,12 @@ Now we can see 'Hello there!' and when we inspect the element in our DevTools in
 
 <kbd>![alt text](img/render.png "screenshot")</kbd>
 
-## React for Dynamic Content!
+## React for Dynamic Content! Basic example.
 
 Ok cool, but what's the point of this? We could've done it the old school way. Well, the idea of React is that we can output dynamic content, React isn't useful for static content.
 
 So, the purpose of React is to output dynamic content inside our Components.
+
+Let's try, ok add ```<p>{ }</p>``` the curly braces ```{ }``` mean we can add dynamic JavaScript content inside them. The curly braces is say, this is JavaScript and I want you to render the result of this to the DOM. Each time you refresh in our ```Math.random()``` it's going to reload and the numbers will change. This is just a simple example, it'll be more likely usage of data from a database being dynamically rendered or UI state, like if something is open or closed.
+
+That's the power of React Components.
