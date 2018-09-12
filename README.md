@@ -12,8 +12,6 @@ Notes on React and Redux.
 * A layer on-top of React
 * Helps with state management of the web app - (1) data in the app (2) UI state of the app (eg. if something is open or closed)
 
-# Covering
-
 ## React Basics
 * Components
 * Events

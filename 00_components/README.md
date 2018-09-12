@@ -24,8 +24,32 @@ We can see the differences in the Virtual DOM and it knows exactly where to upda
 
 This cycle happens everytime one of our Component's **state** or **data** changes. It's constantly updating in the DOM.
 
-## How are these Components made? What do they look like?
+## React Components and Templates
+
+How are these Components made? What do they look like?
 
 * Components looks like HTML templates, but they're not HTML, they're actually **JSX** (JavaScript XML)
 * They can contain a **state** which is the ```data``` or ```UI state``` of the web application
 * They can also contain JavaScript for functionality
+
+**Example of React Component**
+```
+class App extends React.Component {
+  state = {
+    name: 'Nancy',
+    age: 30
+  }
+}
+render() {
+  return(
+    <div className="container">
+      <h1>Hello there!</h1>
+      <p>My name is: { this.state.name } and I am { this.state.age }</p>
+    </div>
+  )
+}
+```
+
+* ```state``` has the data
+* The template is in JSX format, but looks like HTML template
+* Notice in the ```<p>``` tag, it's inserting dynamic content, grabbing from the data, using ```{ }``` curly braces. We can do that with JSX.
