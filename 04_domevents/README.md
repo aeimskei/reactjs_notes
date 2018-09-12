@@ -49,12 +49,12 @@ render() {
 
 **Define ```handleMouseOver()``` function**
 * Create and define the function inside the class above ```render()``` called ```handleMouseOver```, we want to execute when someone click on this button. This function is going to take in the ```e``` the event object as its parameter.
-* Inside it, first, test the function with ````console.log``` the ```e``` event and the property ```target``` which gets us the target element, like what the User did to cause the event, where the event is firing from, for us, it's the button.
+* Inside it, first, test the function with ````console.log``` the ```e``` event and the property ```target``` which gets us the target element, like what the User did to cause the event, where the event is firing from, for us, it's the button. The ```pageX``` gets the x-axis of where the User hovered over the button.
 
 ```
 
 handleMouseOver(e) {
-  console.log(e);
+  console.log(e.target, e.pageX);
   // console.log('You hovered over me!');
 }
 
@@ -68,3 +68,21 @@ Everytime you over on top of this button, it'll fire the action, which in our ca
 
 ## Example, ```copy``` Event
 
+**Inside ```render()``` function**
+* Create a ```<p>``` tag and add some text
+* Add event listener for ```onCopy``` set it to something with ```=``` like a function
+* Then call the function in ```{  }``` and it has to have ```this``` in front of the function name bc ```this``` refers to the Component which the function is stored on.
+
+**Define ```handleCopy()``` function**
+* Create and define the function inside the class above ```render()``` called ```handleCopy```, we want to execute when someone click on this button. This function is going to take in the ```e``` the event object as its parameter.
+* Inside it, first, test the function with ````console.log``` a text. When the User tries to right click and copy, it'll log out the action inside the function.
+
+```
+handleCopy(e) {
+  console.log('This is the copy event.');
+}
+
+<p onCopy={ this.handleCopy }>Example for copy event.</p>
+```
+
+<kbd>![alt text](img/oncopy.png "screenshot")</kbd>

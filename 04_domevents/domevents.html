@@ -32,6 +32,10 @@
         // console.log('You hovered over me!');
       }
 
+      handleCopy(e) {
+        console.log('This is the copy event.');
+      }
+
       render() {
         return (
           <div className="app-content">
@@ -39,7 +43,9 @@
             <p>My name is { this.state.name } and I am { this.state.age } years old.</p>
 
             <button onClick={ this.handleClick }>Click Me</button> 
-            <button onMouseOver={ this.handleMouseOver }>Hover Over Me</button>  
+            <button onMouseOver={ this.handleMouseOver }>Hover Over Me</button> 
+            
+            <p onCopy={ this.handleCopy }>Example for copy event.</p>
           </div>
         )
       }
