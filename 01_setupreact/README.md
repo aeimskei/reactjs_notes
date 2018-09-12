@@ -31,3 +31,24 @@ Next, create a new file called ```index.html``` and add those two ```<scripts>``
 </body>
 </html>
 ```
+
+The top ```<script>``` is the **Core React library**.
+
+```
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+```
+
+The second, bottom one, is the **React DOM library** and this is like a glue layer between React and the DOM. It's what let's us inject our components into the DOM.
+
+```
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+```
+
+Now, inside the ```<body>```, create a ```<div>``` tag with an ```id``` of app. This will be the ```<div>``` that we'll ultimately controlling with a React Component.
+
+## If you're using VSCode
+
+Add these extension packages bc it'll be very useful when you're developing your React applications:
+
+* **ES7 React/Redux/GraphQL/React-Native snippets** - this will give us shortcuts to some snippets of code, so we can easily create Components or imports, etc.
+* **Sublime Babel** - this will give us decent syntax highlighting for when we write JSX for our Component template, so it's going to look like HTML.
