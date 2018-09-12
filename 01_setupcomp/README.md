@@ -169,4 +169,6 @@ So, the purpose of React is to output dynamic content inside our Components.
 
 Let's try, ok add ```<p>{ }</p>``` the curly braces ```{ }``` mean we can add dynamic JavaScript content inside them. The curly braces is say, this is JavaScript and I want you to render the result of this to the DOM. Each time you refresh in our ```Math.random()``` it's going to reload and the numbers will change. This is just a simple example, it'll be more likely usage of data from a database being dynamically rendered or UI state, like if something is open or closed.
 
+<kbd>![alt text](img/random.png "screenshot")</kbd>
+
 That's the power of React Components.
