@@ -71,6 +71,8 @@ Class-based Component must have inside at least one function, and that's the **r
 
 Next, inside the ```render()``` method, we're going to want to ```return``` a **value**, and this value is going to be our **JSX template**. Typically, this return value is going to inside ```( )``` parentheses bc most times, our return value is going to go over one.
 
+## JSX Template
+
 * ```JSX``` - is a way for us to write HTML code inside JavaScript bc as you can see within our ```<script>``` tag, we're working inside a JavaScript block. 
 
 We'll write some HTML code and use JSX to do that, again, it looks like HTML, but it's actually JSX template. First, create a ```<div>``` and inside it add whatever element, for this example, let's add an ```<h1>```.
@@ -105,7 +107,7 @@ There's a couple of limitations when using JSX to be aware of:
     class App extends React.Component {
       render() {
         return (
-          <div>
+          <div className="app-content">
             <h1>Hello there!</h1>
           </div>
         )
@@ -115,3 +117,52 @@ There's a couple of limitations when using JSX to be aware of:
 
 </body>
 ```
+
+## Render our Component
+
+At the moment, our code isn't doing anything. We need to **render** our React Component to ```<div id="app">```. But, currently, nothing inside our JavaScript block is telling React to do that yet. Remember, we added the second script, ```<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>```, called **React DOM**, this is the glue layer that takes our Components and can render them to the DOM.
+
+The way we take the Component and render it to the DOM is by saying
+
+* ```ReactDOM```  - this is to access
+* ```render()``` - use this method, pass in two parameters inside
+* First parameter - which Class Component we want to render to the DOM, ie. ```App```, but we add it as a tag like JSX ```<App />```. So, we take a Component Name and put it inside a tag, which is also a self-closing tag.
+* Second parameter - is where we want to render it to the DOM. In this example, we want to render it to ```<div id="app">```, so we'll say ```document.getElementById()``` and then pass in the id.
+
+```
+<body>
+  <div id="app"></div>
+
+  <script>
+    class App extends React.Component {
+      render() {
+        return (
+          <div className="app-content">
+            <h1>Hello there!</h1>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<App />, document.getElementById('app'));
+  </script>
+</body>
+```
+
+<kbd>![alt text](img/error.png "screenshot")</kbd>
+
+When you open this index.html in the Browser, it's going to show an error bc the Browser doesn't recognixe JSx out of the box bc it's not supporter. We need a way to take this code and trasnpile it into something that is supported in browsers. Go to https://babeljs.io/ , then click on setup and grab the script in Usage section ```<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>``` and ```type="text/babel"``` into your ```<script>``` tag.
+
+* **Babel** - it's going to transpile our code into something that the Browser will understand.
+
+<kbd>![alt text](img/babel.png "screenshot")</kbd>
+
+Now we can see 'Hello there!' and when we inspect the element in our DevTools in Chrome, then we can see that inside the ```<div id="app">``` we're rendering our ```App``` Component. So, it doesn't get rid of the root, it just nests our Component inside that div.
+
+<kbd>![alt text](img/render.png "screenshot")</kbd>
+
+## React for Dynamic Content!
+
+Ok cool, but what's the point of this? We could've done it the old school way. Well, the idea of React is that we can output dynamic content, React isn't useful for static content.
+
+So, the purpose of React is to output dynamic content inside our Components.
