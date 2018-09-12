@@ -12,7 +12,6 @@
   <title>React Component</title>
 </head>
 <body>
-
   <div id="app"></div>
 
   <script type="text/babel">
@@ -21,7 +20,7 @@
         return (
           <div className="app-content">
             <h1>Hello there!</h1>
-            <p>Example of JS random number to show this Component is dynamic: { Math.random() * 10 }</p>
+            <p>Dynamically rendered: { Math.random() * 10 }</p>
           </div>
         )
       }
@@ -29,6 +28,5 @@
 
     ReactDOM.render(<App />, document.getElementById('app'));
   </script>
-
 </body>
 </html>
