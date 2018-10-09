@@ -14,3 +14,12 @@ When the user clicks on a link to go to another page, or inputs a specific page 
 
 <kbd>![alt text](img/multipageapp.png "screenshot")</kbd>
 
+## Single Page Apps
+
+With React, it's a bit different, but first of all, when we make a request, we might go to the ```example.com/index``` to get that initial request, the initial page.
+
+So, the request goes to the server and then it send back the ```index.html``` file. But, when it reaches the browser, React takes over the application. Then onwards, if we click on a link to go to a new page, for instance, ```example.com/contact```, then React is goin to intercept that request and it's not going to go to the server, but React will handle it and it'll dynamically update the browser with the ```/contact``` component. React will load in that component and it stops the request from going to the server, so this saves us that trip to and back from the server, making our application faster. 
+
+This is the heart of React. It'll show different components to the user, depending on their actions all on the front-end.
+
+<kbd>![alt text](img/singlepageapp.png "screenshot")</kbd>
