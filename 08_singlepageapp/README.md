@@ -41,7 +41,7 @@ What React is going to do is inject our components dynamically into this ```<div
 
 * Create them inside the ```src``` folder
 
-## App.js
+## App.js File
 
 ```App.js``` is a dummy component that React has already created for us when we generated this project from the ```create-react-app``` command. You can see that it's a Class-based component.
 
@@ -72,3 +72,40 @@ export default App;
 It has the ```render()``` method and inside is a JSX template. So, there's nothing new from what we learned earlier so far. Then at the end of the file, we're exporting this App class ```class App extends Component``` with ```export default App;``` so we can then render it at some point to the DOM.
 
 **Where do we render this Component to the DOM?**
+
+That's inside the ```index.js``` file.
+
+## index.js File
+
+On the top:
+
+* ```import React from 'react';``` - is the React library
+* ```import ReactDOM from 'react-dom';``` - is like a glue layer between React and the DOM
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
+```
+
+Then, on the bottom, we use:
+
+* ```ReactDOM.render()``` - to render the ```<App />``` to the id of ```document.getElementById('root')``` from index.html
+
+We import the App component on the top with:
+
+* ```import App from './App';``` - from that App.js component file, it can access it bc we wrote ```export default App;``` on the bottom of the file.
+
+So, we're exporting the ```App.js``` component and imported into the ```index.js``` file and that file is rendering the App component to this element, ```document.getElementById('root')``` inside the index.html file.
+
+<kbd>![alt text](img/connect.png "screenshot")</kbd>
+
+**How do we run this file?**
+
+* First, we need to ```cd``` into the directory of your project file, in this case, it's called ```myapp``` in the terminal.
+
