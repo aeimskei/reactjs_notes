@@ -109,3 +109,26 @@ So, we're exporting the ```App.js``` component and imported into the ```index.js
 
 * First, we need to ```cd``` into the directory of your project file, in this case, it's called ```myapp``` in the terminal.
 
+* To launch local development server, command ```npm start``` in the terminal so that you can preview your work in the browser.
+
+**terminal**
+<kbd>![alt text](img/npmstart.png "screenshot")</kbd>
+
+**browser**
+<kbd>![alt text](img/reactapp.png "screenshot")</kbd>
+
+There you go, this is our dummy React app that comes when we generate a starter project from ```create-react-app```. As you can see on the browser, it is the component that has been injected into the DOM, that ```App.js``` component file.
+
+**What are the rest of the files?**
+
+* ```App.css``` - is a CSS file for that App.js component (you can delete it and remember to go into App.js to delete the import reference)
+* ```App.test.js``` - to test our component, can delete for now, we will learn it later
+* ```index.css``` - this is a global style sheet for our application
+* ```index.js``` - is where we render the application to the DOM
+* ```logo.svg``` - don't need it anymore, it's just React's logo (remember to remove in App.js references too)
+* ```registerServiceWorker.js``` - that helps with catching our assets and files so we get a better user experience
+
+Now that we've removed the extra files that came with the package, we've stripped it down to a more core and basic React project. In fact, just delete the rest of the JSX template inside the App.js file between the root ```<div>``` and insert our own template. Save it and it'll automatically update in the browser bc the local server is running.
+
+**browser**
+<kbd>![alt text](img/myfirst.png "screenshot")</kbd>
