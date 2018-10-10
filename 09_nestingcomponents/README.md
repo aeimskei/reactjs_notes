@@ -110,3 +110,8 @@ We can see now that our new People Component is being nested into the DOM.
 
 ## Why do We Need to Nest Components?
 
+The idea of having different components bc we want to keep our code more **modular**. 
+
+Our new People component may have its own **state** and **methods** at some point, which we don't want to mix up with our root App component's state or methods. 
+
+Also, if we wanted to, we can reuse the People component and nest in different places later on as well.
