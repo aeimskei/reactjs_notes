@@ -32,6 +32,8 @@ class App extends Component {
 export default App;
 ```
 
+## Create New Class-based Component to Nest
+
 We're going to create a new component and nest that newly created component inside this root App Component. First, we need to make a new file for that new component in the ```src``` directory called ```People.js``` and we want to our new component in this file.
 
 First, let's review, remember when added the React script directly in the HTML file, this was the beginning example, we did:
@@ -76,3 +78,35 @@ class People extends Component {
 
 export default People;
 ```
+
+## Nest the New Component into App.js Root Component
+
+* At the top of ```App.js``` below the ```import React...```, add ```import People from``` and then in quotations, dot forward slash ```'./'``` that means we're in the in this current directory and then the name of the file ```People``` which in whole, ```'./People'```. The import is smart enough to figure that out.
+* Now that we've imported the component file, we can now nest it inside the App.js Component by putting ```People``` component in a tag like ```<People />```. We output it as if it was an HTML element.
+
+**App.js**
+```
+import React, { Component } from 'react';
+import People from './People';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1>My First React App</h1>
+        <p>Welcome my friends!</p>
+        <People />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+We can see now that our new People Component is being nested into the DOM.
+
+<kbd>![alt text](img/nestpeople.png "screenshot")</kbd>
+
+## Why do We Need to Nest Components?
+
