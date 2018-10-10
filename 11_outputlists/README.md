@@ -27,7 +27,7 @@ Because they're all going to be going into the same single component.
 
 Also, instead of defining that list as ```props``` on the ```<People />``` component directly, we will define that data in the ```state``` above the ```render()``` method. Create a ```state``` object and then we'll pass that property of the state down into the ```<People />``` component.
 
-First, create a property called ```people``` in the ```state``` object and it's going to be an ```[ ]``` array. Inside that array will have a list of objects with each person's info.
+First, create a property called ```people``` in the ```state``` object and it's going to be an ```[ ]``` array. Inside that array will have a list of objects with each person's info. Remember to include an ```id``` property for each person.
 
 **App.js**
 ```
@@ -35,9 +35,9 @@ First, create a property called ```people``` in the ```state``` object and it's 
 class App extends Component {
   state = {
     people: [
-      {name: 'Rider', age: 27, occupation: 'Student'},
-      {name: 'May', age: 27, occupation: 'Teacher'},
-      {name: 'Kai', age: 32, occupation: 'Designer'}
+      {name: 'Rider', age: 27, occupation: 'Student', id: 1},
+      {name: 'May', age: 27, occupation: 'Teacher', id: 2},
+      {name: 'Kai', age: 32, occupation: 'Designer', id: 3}
     ]
   }
 
@@ -53,5 +53,8 @@ class App extends Component {
 }
 ```
 
+So, each array item is an object, we're gonna pass this array of objects down into the ```<People />``` component inside the ```render()``` method. We will recieve that array on People.js as a prop and we will cycle through it and output some HTML for each individual person.
+
+First, in App.js, let's pass the array through to ```<People />``` component as ```prop```. We can call our newly created prop ```people``` and set it equal to ```this.state.people```. All we're doing is referencing the array of objects in the ```state``` earlier.
 
 <kbd>![alt text](img/reuse.png "screenshot")</kbd>
