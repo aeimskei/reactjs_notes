@@ -32,7 +32,7 @@ class App extends Component {
 export default App;
 ```
 
-## How to Access Class-based Components Us
+## How to Access Class-based Components Use in Child Component
 
 We access those in Class-based components automatically from ```this.props```. ```this``` references in the component and ```.props``` is to access the props object on this component.
 
@@ -73,7 +73,25 @@ Now, let's output those ```props``` into our People.js JSX tempate.
 * then inside the curly braces, ```this.props``` and ```.whatevername```
 * like ```this.props.name``` from the prop name we wrote in App.js
 
+<kbd>![alt text](img/apptopeople.png "screenshot")</kbd>
+
 **People.js**
 ```
+import React, { Component } from 'react';
 
+class People extends Component {
+  render() {
+    return(
+      <div className="person">
+        <div>Name: { this.props.name }</div>
+        <div>Age: { this.props.age }</div>
+        <div>Occupation: { this.props.occupation }</div>
+      </div>
+    )
+  }
+}
+
+export default People;
 ```
+
+<kbd>![alt text](img/dynprops.png "screenshot")</kbd>
