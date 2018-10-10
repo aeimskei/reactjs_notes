@@ -11,3 +11,5 @@ class People extends Component {
     )
   }
 }
+
+export default People;

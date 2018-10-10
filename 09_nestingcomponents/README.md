@@ -53,11 +53,26 @@ class App extends Component
 * Use ```import React, { Component } from 'react';``` whenever we create a **Class-based Component**, we need to import these two thing: React and Component
 * Next, create that Class-based Component with the name People: ```class People extends Component {}```
 * Inside, we need the ```render()``` method
-* And the ```redner()``` method returns a JSX template
+* And the ```render()``` method returns a JSX template
 * For the JSX template, you need a ```<div>``` first with ```className="person"``` (emmet's shortcut is ```div.person``` and hit tab)
 * Inside the root ```<div>``` create another series of ```divs``` one for name, age and occupation.
+* Finally, we need to ```export``` it bc we want to later import it into ```App``` Component and then nest it with ```export default People;```
 
 **People.js**
 ```
+import React, { Component } from 'react';
 
+class People extends Component {
+  render() {
+    return(
+      <div className="person">
+        <div>Name: Rider</div>
+        <div>Age: 27</div>
+        <div>Occupation: Student</div>
+      </div>
+    )
+  }
+}
+
+export default People;
 ```
