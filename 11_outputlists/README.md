@@ -53,8 +53,32 @@ class App extends Component {
 }
 ```
 
+## Pass Array into as Props
+
 So, each array item is an object, we're gonna pass this array of objects down into the ```<People />``` component inside the ```render()``` method. We will recieve that array on People.js as a prop and we will cycle through it and output some HTML for each individual person.
 
 First, in App.js, let's pass the array through to ```<People />``` component as ```prop```. We can call our newly created prop ```people``` and set it equal to ```this.state.people```. All we're doing is referencing the array of objects in the ```state``` earlier.
 
-<kbd>![alt text](img/reuse.png "screenshot")</kbd>
+<kbd>![alt text](img/refstatetoprop.png "screenshot")</kbd>
+
+## Have Access to People Array in Another Component
+
+Inside People.js, we will have access to people array via creating a variable and grabbing that data.
+
+**People.js**
+```
+const people = this.props.people;
+```
+
+is the same as the destructured version:
+
+```
+const { people } = this.props;
+```
+
+So, we grab the ```people``` property with ```const { people }``` off the ```this.props``` object, so we have that array of ```people``` from App.js stored in here now.
+
+Next, we want to output it to the DOM.
+
+## Output DATA into the DOM
+

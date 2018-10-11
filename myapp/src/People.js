@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class People extends Component {
   render() {
-
-    const { name, age, occupation } = this.props;
+    
+    const { people } = this.props;
 
     return(
       <div className="person">
