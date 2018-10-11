@@ -80,5 +80,59 @@ So, we grab the ```people``` property with ```const { people }``` off the ```thi
 
 Next, we want to output it to the DOM.
 
-## Output DATA into the DOM
+## Output Data into the DOM with ```map()``` Method
 
+We want to cycle through that list of people and ouptut some HTML for each individual one, which looks like this template:
+
+**People.js**
+```
+<div className="person">
+  <div>Name: { name }</div>
+  <div>Age: { age }</div>
+  <div>Occupation: { occupation }</div>
+</div>
+```
+
+To do it, we need to use the JavaScript method, **map()**.
+
+  * **```map()```** - it takes an array and it maps that array to a new array.
+
+It's essentially what we want to do. We want to take the ```{ people }``` that we grabbed and map it to a new array, which will be an array of HTML elements, one for each individual person. Then, we can ouput that array of code in the template.
+
+## Map a New Array of HTML Template
+
+First, creaet a new constant variable, let's call it ```peopleList``` where we will store all our new array full of HTML elements inside. We will set that to ```people.map()``` and inside that map parantheses, we'll take each individual ```person``` as we cycle through it, then use the **arrow function** ```=>``` and we perform a function on that individual ```person```. 
+
+We need to return a value inside this function, this ```return``` value is the element whcih is popped into the new array of ```peopleList```. So, we need to return some **JSX** code, essentially HTML, for each individual person, it'll be the template for that individual person.
+
+```
+const peopleList = people.map(person => {
+  return(
+    <div className="person">
+      <div>Name: { name }</div>
+      <div>Age: { age }</div>
+      <div>Occupation: { occupation }</div>
+    </div>
+  )
+})
+```
+
+We need to reference ```person``` in the ```map()``` method bc this is the item that we're cycling through each time we iterate. So change it to:
+
+```
+const peopleList = people.map(person => {
+  return(
+    <div className="person">
+      <div>Name: { person.name }</div>
+      <div>Age: { person.age }</div>
+      <div>Occupation: { person.occupation }</div>
+    </div>
+  )
+})
+```
+
+Now, all we have left to do is output our newly created array through map below in ```return()```. First, we'll need to create root ```<div>```
+
+```
+
+```

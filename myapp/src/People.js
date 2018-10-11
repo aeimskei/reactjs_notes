@@ -4,13 +4,18 @@ class People extends Component {
   render() {
     
     const { people } = this.props;
+    const peopleList = people.map(person => {
+      return(
+        <div className="person">
+          <div>Name: { person.name }</div>
+          <div>Age: { person.age }</div>
+          <div>Occupation: { person.occupation }</div>
+        </div>
+      )
+    })
 
     return(
-      <div className="person">
-        <div>Name: { name }</div>
-        <div>Age: { age }</div>
-        <div>Occupation: { occupation }</div>
-      </div>
+
     )
   }
 }
