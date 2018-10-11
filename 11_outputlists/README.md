@@ -131,7 +131,9 @@ const peopleList = people.map(person => {
 })
 ```
 
-Now, all we have left to do is output our newly created array through map below in ```return()```. First, we'll need to create root ```<div>```
+Now, all we have left to do is output our newly created array through map below in ```return()```. First, we'll need to create root ```<div>``` as ```<div className="people-list"></div>```. Inside that ```<div>```, all we're gonna do is output the ```peopleList``` array bc it's gonna be the list of element or JSX template we made for each individual person.
+
+We will output it in our ```{ }``` curly braces bc this is dynamic content we're outputting. Inside that curly braces put in the variable name for the ```peopleList``` like ```{ peopleList }```. React and JSX is going to know that we want to output the JSX template sequentially.
 
 ```
 
