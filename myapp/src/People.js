@@ -6,7 +6,7 @@ class People extends Component {
     const { people } = this.props;
     const peopleList = people.map(person => {
       return(
-        <div className="person">
+        <div className="person" key={person.id}>
           <div>Name: { person.name }</div>
           <div>Age: { person.age }</div>
           <div>Occupation: { person.occupation }</div>

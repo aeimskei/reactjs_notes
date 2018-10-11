@@ -4,9 +4,9 @@ import People from './People';
 class App extends Component {
   state = {
     people: [
-      {name: 'Rider', age: 27, occupation: 'Student'},
-      {name: 'May', age: 27, occupation: 'Teacher'},
-      {name: 'Kai', age: 32, occupation: 'Designer'}
+      {name: 'Rider', age: 27, occupation: 'Student', id: 1},
+      {name: 'May', age: 27, occupation: 'Teacher', id: 2},
+      {name: 'Kai', age: 32, occupation: 'Designer', id: 3}
     ]
   }
 
@@ -22,3 +22,4 @@ class App extends Component {
 }
 
 export default App;
+

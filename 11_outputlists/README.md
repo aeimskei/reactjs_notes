@@ -135,6 +135,87 @@ Now, all we have left to do is output our newly created array through map below 
 
 We will output it in our ```{ }``` curly braces bc this is dynamic content we're outputting. Inside that curly braces put in the variable name for the ```peopleList``` like ```{ peopleList }```. React and JSX is going to know that we want to output the JSX template sequentially.
 
+**People.js**
+```
+class People extends Component {
+  render() {
+    
+    const { people } = this.props;
+    const peopleList = people.map(person => {
+      return(
+        <div className="person">
+          <div>Name: { person.name }</div>
+          <div>Age: { person.age }</div>
+          <div>Occupation: { person.occupation }</div>
+        </div>
+      )
+    })
+
+    return(
+      <div className="people-list">
+        { peopleList }
+      </div>
+    )
+  }
+}
 ```
 
+<kbd>![alt text](img/dynoutputdata.png "screenshot")</kbd>
+
+
+It works, but when you look in the console in DevTools, you'll see that we're getting an error.
+
+## Needs Unique ID for Items
+
+<kbd>![alt text](img/warningerr.png "screenshot")</kbd>
+
+What this error means is that each:
+
 ```
+...
+<div className="person">
+  <div>Name: { person.name }</div>
+  <div>Age: { person.age }</div>
+  <div>Occupation: { person.occupation }</div>
+</div>
+```
+
+Needs to have a **unique key identifier** for this element block of elements. It's bc React need to identify which person or item this is. If you think about it, when we change data from state, React is going to update the template and iterate through the list to figure out which person was removed/updated and so React can make those changes to the DOM.
+
+To do that, all we need to do is add ```key={}``` key is equal to something and that something has to be unique for that person or item. That something is going to be the ```id``` we need to add in the ```state``` in App.js.
+
+**App.js**
+```
+...
+state = {
+  people: [
+    {name: 'Rider', age: 27, occupation: 'Student', id: 1},
+    {name: 'May', age: 27, occupation: 'Teacher'}, id: 2,
+    {name: 'Kai', age: 32, occupation: 'Designer', id: 3}
+  ]
+}
+```
+
+So in People.js, we need to add ```key={ person.id }``` in our ```<div className="person">```
+
+**People.js**
+```
+...
+    const peopleList = people.map(person => {
+      return(
+        <div className="person" key={person.id}>
+          <div>Name: { person.name }</div>
+          <div>Age: { person.age }</div>
+          <div>Occupation: { person.occupation }</div>
+        </div>
+      )
+    })
+```
+
+<kbd>![alt text](img/uniqueid.png "screenshot")</kbd>
+
+There you go, no more warning or error in the console.
+
+## Summary
+
+So that's how you can cycle through data. We get the original array, then map through that array and receive each individual item in the array, to create a new list array, then we perform a function for each individual item, inside that function, we return some JSX template that we want to output for each item, it cycles through those and stores that JSX in a new array list (create a new variable to store it), and then finally we output the items with templates below in the return() method. That is how we iterate or loop through data and output in React.
