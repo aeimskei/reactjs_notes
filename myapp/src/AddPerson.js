@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
 
 class AddPerson extends Component {
+  state = {
+    name: null,
+    age: null,
+    occupation: null
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDeafult();
+  }
+  
   render() {
-    state = {
-      name: null,
-      age: null,
-      occupation: null
-    }
-
-    handleChange = (e) => {
-      this.setState({
-        [e.target.id]: e.target.value
-      })
-    }
-
     return(
       <div>
         <form onSubmit>

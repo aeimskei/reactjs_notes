@@ -102,5 +102,5 @@ Next, we need to call the function everytime we make a change into the input fie
 
 ### Handle onSubmit
 
-Use the ```onSubmit={...}``` event listener to the ```<form>``` tag. Inside ```onSubmit```, we'll fire a different function.
+Use the ```onSubmit={...}``` event listener to the ```<form>``` tag. Inside ```onSubmit```, we'll fire a different function. Create ```    handleSubmit = (e) => {...} ``` and remember to add the ```e.preventDefault()``` action.
 
