@@ -73,9 +73,34 @@ state = {
 }
 ```
 
+### Know Which Field to Update
+
 Do we need a separate function to handle each input? Actually, we can just have one function to handle it for us.
 
-Let's create a function called ```handleChange```.
+Let's create a function called ```handleChange```. We want to handle the ```state``` where the user has typed by using ```this.setState()``` and then inside, we'll have to say what we want to set the state of. 
 
+But, how do we know what property we want to update for each input field, if only one function is going to fire for all input fields? Well, remember we added an ```id``` for each of the input fields. When the function fires, what we can do is grab the ```id``` of the target element from the event object, grab that, and then we can query that ```id``` up in the ```state```. That ```id``` is the same name as the property in ```state```.
 
-<kbd>![alt text](img/under30.png "screenshot")</kbd>
+<kbd>![alt text](img/statetoprop.png "screenshot")</kbd>
+
+Looks into the event object and target the element and then the id. This is very much like square brackets notation. Imagine if we had an array and if we wanted to get the third item in the array we'd do something like ```name[2]``` bc the thrid item is index 2. Object works in similar ways like ```person['name']```. For our ```handleChange``` function, we'll use:
+
+```
+[e.target.id]
+```
+It'll represent the access to name, age and occupation. It's going to look for the name, age or occupation property on the the ```state```. This takes care of knowing which field to update.
+
+### Get the Value We Want to Update With
+
+```e``` is the event object, ```target``` is which input field and ```value``` is whatever the input value inside that input field. 
+
+```
+[e.target.value]
+```
+
+Next, we need to call the function everytime we make a change into the input fields with ```onChange={ this.handleChange }```.
+
+### Handle onSubmit
+
+Use the ```onSubmit={...}``` event listener to the ```<form>``` tag. Inside ```onSubmit```, we'll fire a different function.
+

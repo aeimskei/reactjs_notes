@@ -8,17 +8,21 @@ class AddPerson extends Component {
       occupation: null
     }
 
-    
+    handleChange = (e) => {
+      this.setState({
+        [e.target.id]: e.target.value
+      })
+    }
 
     return(
       <div>
-        <form>
+        <form onSubmit>
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" onChange={}/>
+          <input type="text" id="name" onChange={ this.handleChange }/>
           <label htmlFor="age">Age:</label>
-          <input type="text" id="age" onChange={}/>
+          <input type="text" id="age" onChange={ this.handleChange }/>
           <label htmlFor="occupation">Occupation:</label>
-          <input type="text" id="occupation" onChange={}/>
+          <input type="text" id="occupation" onChange={ this.handleChange }/>
           <button>Submit</button>
         </form>
       </div>
