@@ -104,3 +104,6 @@ Next, we need to call the function everytime we make a change into the input fie
 
 Use the ```onSubmit={...}``` event listener to the ```<form>``` tag. Inside ```onSubmit```, we'll fire a different function. Create ```    handleSubmit = (e) => {...} ``` and remember to add the ```e.preventDefault()``` action.
 
+Now, let's log the ```state``` to the console to check. Before we can see this, we need to nest this AddPerson component into the root App.js Component.
+
+<kbd>![alt text](img/lognewperson.png "screenshot")</kbd>
