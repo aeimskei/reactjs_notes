@@ -1,6 +1,25 @@
 # Stateless Components
 
+There are different types of Components we can have in a React Application, Container vs. UI Components
 
+## Container Component
 
+It's not concern of the UI or the look of the application. They normally contain ```state``` of the data and they serve as data sources, so they can have **lifecycle hooks** where they can go out and grab data, and store that in their ```state``` and nest other components within them. We use **Classes** to create Container Components aka **Class-based Components**.
+
+* Contain ```state```
+* Contain **lifecycle hooks**
+* Not concerned with UI
+* Use **Classes** to create
+
+## UI Components
+
+These don't contain ```state``` and they recieve all of their data from ```props``` and those data can come from **Container Components** bc they do have ```state```, go out and grab data, and store in their ```state``` and then they can pass that data down into the **UI Components** as ```props``` and that's how UI Components recieve data. They generally don't have ```state``` of their own. They're primarily concerned with the UI and how that data is presented on the screen. We don't use Classes to create these Components, rather, we use Functions to create them. They're also sometimes called **Stateless Components** or **Functional Components**.
+
+* Don't contain ```state```
+* Recieve data from ```props```
+* Only concerned with UI
+* Use **Functions** to create
+
+## Container vs UI Components
 
 <kbd>![alt text](img/blank.png "screenshot")</kbd>
