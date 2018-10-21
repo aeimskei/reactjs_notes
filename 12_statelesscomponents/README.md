@@ -22,4 +22,12 @@ These don't contain ```state``` and they recieve all of their data from ```props
 
 ## Container vs UI Components
 
-<kbd>![alt text](img/blank.png "screenshot")</kbd>
+<kbd>![alt text](img/containervsui.png "screenshot")</kbd>
+
+**App.js** is the Root Component and it contains these three other components like Navbar.js, People.js and Contact.js. It may go out to a database via a ```lifecycle hook```, grab some data, store that on its ```state``` inside this component and then pass that data down as a ```prop``` to the UI/Functional Components like Navbar.js and People.js.
+
+**Navabar.js** and **People.js** are create by Functions and not Classes and that's bc they don't need their own ```state```. They don't necessarily need ```data``` or ```state```. They're more concerned with UI. Like how do we output link on the page. If they do use data, they get them from the Container Component, which is passed down to them as ```props```.
+
+**Contact.js** could be a Container Component. We can nest Containers inside Containers. Generally, a contact form would have its own local state to store the user's input into that form. So, we would build this with a Class, instead of a Function. It could also have other Components nested inside that as well.
+
+In this example, we're gonna turn the previous example on the People.js component from a Class Component to a UI Component by using a Function to create instead of a Class.
