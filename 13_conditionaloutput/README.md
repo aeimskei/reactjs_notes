@@ -44,3 +44,24 @@ const People = ({people}) => {
 
 ## Ternerary Operator
 
+A ternerary operator needs a ```condition``` which is going to evaluate to true or false and we place a ```?``` question mark after that and then two return values. One returns if the condition true, and the the other is false.
+
+**condition** ? **()** : **()**
+
+```
+const peopleList = people.map(person => {
+  return person.age < 30 ? (
+    <div className="person" key={person.id}>
+      <div>Name: { person.name }</div>
+      <div>Age: { person.age }</div>
+      <div>Occupation: { person.occupation }</div>
+    </div>
+  ) : null
+})
+```
+
+## Nesting Conditions Directly in the Template version (not so recommended)
+
+Remove ```{ peopleList }``` inside the ```<div className="people-list">``` template. Also remove ```const peopleList = ```. What we're doing here is mapping thhrough people and returning person, which either going to be the JSX template or null.
+
+It'll still work :)
