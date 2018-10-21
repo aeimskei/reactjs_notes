@@ -1,7 +1,6 @@
 import React from 'react';
 
-const People = (props) => {
-  const { people } = props;
+const People = ({people}) => {
   const peopleList = people.map(person => {
     return(
       <div className="person" key={person.id}>

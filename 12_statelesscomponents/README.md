@@ -116,3 +116,28 @@ See, no it all works :)
 
 ## Destructured Version
 
+We destructure directly inside the brackets where we recieve the ```props``` and remove the ```const { people } = this.props;```. If you're recieving more than one props, it would be like ```const People = ({people, company, school}) => {...}```.
+
+```
+import React from 'react';
+
+const People = ({people}) => {
+  const peopleList = people.map(person => {
+    return(
+      <div className="person" key={person.id}>
+        <div>Name: { person.name }</div>
+        <div>Age: { person.age }</div>
+        <div>Occupation: { person.occupation }</div>
+      </div>
+    )
+  })
+
+  return(
+    <div className="people-list">
+      { peopleList }
+    </div>
+  )
+}
+
+export default People;
+```
