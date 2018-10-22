@@ -40,3 +40,13 @@ Now, a lot of these lifecycles hook, we're not going to be using, just a couple 
 <kbd>![alt text](img/compmount.png "screenshot")</kbd>
 
 It's going to ever be mounted once unless we refresh the page or delete the re-render at some point.
+
+<kbd>![alt text](img/compdidupdate.png "screenshot")</kbd>
+
+If we make changes then, it'll fire the console.log. For example, I deleted rider and you'll see in the console, it shows the previous data, but on the UI it only has May. It's only showing May bc it meets the condition that we created earlier of outputting people only if they're under the age of 30.
+
+If we delete again, we can see that it only has 2 objects in the console, bc it was updating from previous state.
+
+<kbd>![alt text](img/compdidupdate2.png "screenshot")</kbd>
+
+We can add another person too. Everytime we do this, it's going to keep comparing the ```state```.

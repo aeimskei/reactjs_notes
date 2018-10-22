@@ -33,6 +33,11 @@ class App extends Component {
     console.log('component mounted!')
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log('component updated!')
+    console.log('Props Data before updated:', prevProps, 'State Data before updated:', prevState)
+  }
+
   render() {
     return (
       <div className="App">
