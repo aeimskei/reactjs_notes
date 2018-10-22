@@ -15,6 +15,9 @@ class AddTodo extends Component {
     e.preventDefault();
     // console.log(this.state); //test
     this.props.addTodo(this.state);
+    this.setState({
+      task: ''
+    })
   }
 
   render() {
@@ -22,7 +25,7 @@ class AddTodo extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>Add new todo task:</label> 
-          <input type="text" onChange={this.handleChange}/>
+          <input type="text" onChange={this.handleChange} value={this.state.task}/>
         </form>
       </div>
     )

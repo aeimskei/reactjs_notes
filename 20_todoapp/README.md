@@ -327,3 +327,21 @@ addTodo = (todo) => {
 <kbd>![alt text](img/displayupdateui.png "screenshot")</kbd>
 
 It works, and is now displaying in the UI.
+
+## Clear Out Input Field After Adding New Todo
+
+Simple. Go to our AddTodo.js Component in the ```handlSubmit``` function. We need to add, ```this.setState({ task: ''})``` and change in the ```render()``` method to add ```value={this.state.task}``` to ```<input type="text" onChange={this.handleChange} value={this.state.task}/>```:
+
+**AddTodo.js**
+```
+handleSubmit = (e) => {
+  e.preventDefault();
+  // console.log(this.state); //test
+  this.props.addTodo(this.state);
+  this.setState({
+    task: ''
+  })
+}
+```
+
+<kbd>![alt text](img/clearform.png "screenshot")</kbd>
