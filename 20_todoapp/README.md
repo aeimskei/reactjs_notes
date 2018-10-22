@@ -201,3 +201,34 @@ deleteTodo = (id) => {
 When you click on the todos, it'll remove the item. If they're all done, you'll get this message.
 
 ## Add a Form to Add New Todos
+
+Create a separate component for our form called AddTodo.js. For this component, we will need to store the ```state```, so that means, this'll be a **Class-based Component**.
+
+**AddTodo.js** initial setup:
+```
+import React, { Component } from 'react'
+
+class AddTodo extends Component {
+  render() {
+    return(
+      <div>
+        <form onSubmit={}>
+          <label>Add new todo task:</label> 
+          <input type="text" onChange={}/>
+        </form>
+      </div>
+    )
+  }
+}
+
+export default AddTodo;
+```
+## Handle ```onChange```
+
+Next, add ```state``` to this Component above the ```render()``` method with the property of ```task``` and set it to an empty string. Then, we'll create a function to handle change for our ```onChange``` event.
+
+The ```handleChange``` function will take in the ```e``` event object as the parameter. Inside the curly braces, we just want to ```setState()``` so that the new task for the input field ```<input type="text" onChange={handleChange}/>```. Whenever input field changes, we want to update the ```task``` property. 
+
+Inside ```handleChange``` say ```this.setState()``` and inside the ```()``` we want the propert of ```task``` from ```state``` to equal to ```e.target.value```, which is whatever that inside the input field if there is change. So now, ```state``` is being kept in sync with the changes in the input field.
+
+Now, add ```this.handlChange``` into the ```onChange={...}``` on the input field element.
