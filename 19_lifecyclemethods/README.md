@@ -23,3 +23,14 @@ This is when a Component is first created and first mounts to the DOM.
 
 ## Updating Phase
 
+* (1) **getDerivedStateFromProps** - it first starts off with the, as stated previously, this triggers when either the ```state``` updates of ```props``` recieved change and we received the next props and the current updated states.
+
+* (2) **shouldComponentUpdate** - this receives the next ```props``` and the next ```state``` and we can compare the ```old props``` with the ```new props``` and the ```current state``` with the ```new state```. So, we can return false here if we want to prevent the component updating and re-rendering. With that said, you could check the ```new props``` against the ```old props``` and only return true if they were different we need an update and re-render. An alternative to this is to use **Pure Components** to React (we won't look at these pure components yet).
+
+* (3) **render** - we then have the render method again to render the template to the DOM.
+
+* (4) **getSnapshotBeforeUpdate** - in here, we get read access to the DOM before the change is actually committed to it. We can also get current value from the DOM if we need it, like the window position, and then return that inside the method. That return value is passed to the final update hook, to allow us to use it.
+
+* (5) **componentDidUpdate** - this is called after the template is rendered to the actual DOM. At this point too, we get access to the DOM and it's a good place to get any external data from a database if needed, but warning, if we update the ```state``` inside this hook, we could get an infinite loop and that's not something we'd want. 
+
+Now, a lot of these lifecycles hook, we're not going to be using, just a couple in our example.
