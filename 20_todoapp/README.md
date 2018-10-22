@@ -108,3 +108,18 @@ const Todos = ({ todos }) => {
 ```
 
 <kbd>![alt text](img/displaytodos.png "screenshot")</kbd>
+
+Improve styling of list by adding ```container``` class.
+
+```
+render() {
+  return (
+    <div className="todo-app container">
+      <h1 className="center blue-text">Todos</h1>
+      <Todos todos={this.state.todos} />
+    </div>
+  );
+}
+```
+
+<kbd>![alt text](img/addcontainer.png "screenshot")</kbd>
