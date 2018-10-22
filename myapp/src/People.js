@@ -1,4 +1,5 @@
 import React from 'react';
+import './People.css';
 
 const People = ({people, deletePerson}) => {
 
