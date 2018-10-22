@@ -10,7 +10,14 @@ class App extends Component {
   }
 
   deleteTodo = (id) => {
-    console.log(id);
+    // console.log(id); // test
+    const todos = this.state.todos.filter(todo => {
+      return todo.id !== id
+    });
+    this.setState({
+      // todos: todos // key and value have the same name
+      todos // with ES6 shortening bc key and value have the same name
+    })
   }
 
   render() {
