@@ -11,12 +11,17 @@ class AddTodo extends Component {
     })
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+  }
+
   render() {
     return(
       <div>
-        <form onSubmit={}>
+        <form onSubmit={this.handleSubmit}>
           <label>Add new todo task:</label> 
-          <input type="text" onChange={this.handelChange}/>
+          <input type="text" onChange={this.handleChange}/>
         </form>
       </div>
     )

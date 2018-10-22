@@ -232,3 +232,62 @@ The ```handleChange``` function will take in the ```e``` event object as the par
 Inside ```handleChange``` say ```this.setState()``` and inside the ```()``` we want the propert of ```task``` from ```state``` to equal to ```e.target.value```, which is whatever that inside the input field if there is change. So now, ```state``` is being kept in sync with the changes in the input field.
 
 Now, add ```this.handlChange``` into the ```onChange={...}``` on the input field element.
+
+## Setup Handle ```onSubmit```
+
+Create a new function called ```handleSubmit``` and it'll take in the event object ```e``` as the parameter, and inside, first we need to prevent the default action of the form being submit, which is to refresh the page. So, we need to add ```e.preventDefault()```.
+
+Then, we'll need to submit this todo, so that it outputs it to the DOM. But, we need another function to deal with that.
+
+First, let's test it out and console.log a new todo to the console in DevTools by saying ```console.log(this.state)``` which is the ```state={task: ''}``` above.
+
+```
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+  }
+```
+
+## Nest the AddTodo Component inside Root Component, App.js
+
+```
+import React, { Component } from 'react';
+import Todos from './Todos'
+import AddTodo from './AddTodo'
+
+class App extends Component {
+  state = {
+    todos: [
+      {id: 1, task: 'walk the cat'},
+      {id: 2, task: 'snuggle with pup and cat'}
+    ]
+  }
+
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter(todo => {
+      return todo.id !== id
+    });
+    this.setState({
+      todos
+    })
+  }
+
+  render() {
+    return (
+      <div className="todo-app container">
+        <h1 className="center blue-text">Todos</h1>
+        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
+        <AddTodo />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+<kbd>![alt text](img/lognewtodo.png "screenshot")</kbd>
+
+## Add to the todoList in ```state``` and UI
+
+We need to make a function inside the Root Component.
