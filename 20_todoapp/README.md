@@ -125,7 +125,7 @@ render() {
 
 <kbd>![alt text](img/addcontainer.png "screenshot")</kbd>
 
-## Event to Delete Todos
+## ```onClick``` Event to Delete Todos
 
 Now, we'll need a simple event to delete these todos. When we click on one of the todos, it'll delete from the list. We'll need to go on to App.js to create a function to delete bc it has to interact with the ```state``` of ```todos[...]```. 
 
@@ -165,3 +165,39 @@ Next, we nee to attach a click event to the ```<span>``` to the individual item 
 <kbd>![alt text](img/onclicklog.png "screenshot")</kbd>
 
 So, it works! When we click on the todo item, it'll log out the ```id```. But, now, we need to actually delete them from the UI and the ```state```.
+
+## Remove Todo from ```state``` and UI
+
+We want to ```filter``` the ```todos[...]``` array of todo tasks. Remember, the ```filter``` method is non-destructive. It returns a new array, so we can do it directly on this property. 
+
+We'll store that new array in a new variable ```const todos``` and we'll assign/set it to ```this.state.todos.filter()```. Inside the ```filter``` method, will pass in a function which takes the individual ```todo``` as a parameter, so we can fire something on each todo. We also want to return either trur or false here. True for if we want to keep the item in the array or false if we want to remove it.
+
+So, we'll say, ```todo.id``` is not equal to ```id``` then we're going to return true. If they're not equal, then we don't want to filter out. If they are equal, then this is going to return false and it's going to remove that item from the array.
+
+```
+deleteTodo = (id) => {
+  // console.log(id); // test
+  const todos = this.state.todos.filter(todo => {
+    return todo.id !== id
+  });
+}
+```
+
+Next, we need to set the ```state```, set the ```todos``` to be equal to the ```const todos``` new todos array that we're creating. Now, since the ```key``` and the ```value```, ```todos: todos```, both have the same name, with ES6 shortening, we can just leave it as ```todos```.
+
+```
+deleteTodo = (id) => {
+  const todos = this.state.todos.filter(todo => {
+    return todo.id !== id
+  });
+  this.setState({
+    todos
+  })
+}
+```
+
+<kbd>![alt text](img/deletetodos.png "screenshot")</kbd>
+
+When you click on the todos, it'll remove the item. If they're all done, you'll get this message.
+
+## Add a Form to Add New Todos
