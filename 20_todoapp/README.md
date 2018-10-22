@@ -71,3 +71,40 @@ const Todos = () => {
 So, we need to pass ```todos``` from the App.js Component in Todo.js and we'll do that with ```props```. We need to ```import Todos from './Todos'``` Todos.js into App.js. Now, we can nest the ```props``` inside ```<Todo />``` in the ```render()``` method.
 
 <kbd>![alt text](img/stateasprops.png "screenshot")</kbd>
+
+Inside Todos.js, we can now access the ```state``` from App.js through ```props``` that was injected when we nested ```<Todos />``` with a prop name into the ```render()``` method in App.js. 
+
+To do that, we'll need to have props as the parameter in ```const Todos```. We'll it the desctructured way and we're grabbing the ```todos``` of that props object. So, now we can use it below in the ```return()``` method.
+
+Because we're getting a list, we need to ```map()``` through that list and then return some JSX for each individual item in that list and then output that list. We'll do that logic above the ```return``` statement.
+
+```const todoList = todos.length``` what we're doing here is to check the length. If we don't have a length or todos, then we don't want to show it or we want to show a different message or set of content. If we do have todos, then want to show the actual todo list. We'll use the **ternerary operator** to check whether it is true or false. False if it is ```0```, true if we have some todos ```const todoList = todos.length ? () : ()```
+
+We'll need to return a JSX template for each. We need a ```<div>``` with Materializes' classname ```collection-item``` to help us style our lists. Inside out div, we want to output our todos in a ```<span>``` tag and use the ```{...}``` to dynamically insert ```todo.task``` inside the cruly braces. We also need to output the ```todo.id``` as key for React. Remember, React expects a unique key on every surrounding element that we return inside this ```map()``` function when we output them to the browser, so that it can identify each individual item.
+
+Then, you'll output it in the ```return()```
+
+**Todos.js**
+```
+const Todos = ({ todos }) => {
+  const todoList = todos.length ? (
+    todos.map(todo => {
+      return(
+        <div className="collection-item" key={todo.id}>
+          <span>{todo.task}</span>
+        </div>
+      )
+    })
+  ) : (
+    <p className="center">You have no todos left!</p>
+  )
+
+  return(
+    <div className="todos collection">
+      { todoList }
+    </div>
+  )
+}
+```
+
+<kbd>![alt text](img/displaytodos.png "screenshot")</kbd>
