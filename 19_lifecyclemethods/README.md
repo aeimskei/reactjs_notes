@@ -34,3 +34,9 @@ This is when a Component is first created and first mounts to the DOM.
 * (5) **componentDidUpdate** - this is called after the template is rendered to the actual DOM. At this point too, we get access to the DOM and it's a good place to get any external data from a database if needed, but warning, if we update the ```state``` inside this hook, we could get an infinite loop and that's not something we'd want. 
 
 Now, a lot of these lifecycles hook, we're not going to be using, just a couple in our example.
+
+## Trying them out in the Root Component
+
+<kbd>![alt text](img/compmount.png "screenshot")</kbd>
+
+It's going to ever be mounted once unless we refresh the page or delete the re-render at some point.
