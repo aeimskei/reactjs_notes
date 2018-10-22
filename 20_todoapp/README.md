@@ -111,6 +111,7 @@ const Todos = ({ todos }) => {
 
 Improve styling of list by adding ```container``` class.
 
+**App.js**
 ```
 render() {
   return (
@@ -123,3 +124,44 @@ render() {
 ```
 
 <kbd>![alt text](img/addcontainer.png "screenshot")</kbd>
+
+## Event to Delete Todos
+
+Now, we'll need a simple event to delete these todos. When we click on one of the todos, it'll delete from the list. We'll need to go on to App.js to create a function to delete bc it has to interact with the ```state``` of ```todos[...]```. 
+
+Create the function ```deleteTodo``` above the ```render()``` method. Pass in ```id``` as the parameter bc this function will have to find that ```id``` that was selected and ```filter()``` something from this array. To test, let's console.log the id.
+
+We want to pass down ```deleteTodo``` function down to the ```<Todos todos={this.state.todos} />``` component as ```props``` so that we can call it from the Todos.js component when we click on an individual todo. So, we'll pass it down as the function by first giving it a prop name and assigning to the function inside curly braces ```deleteTodo={this.deleteTodo}```.
+
+**App.js**
+```
+class App extends Component {
+  state = {
+    todos: [
+      {id: 1, task: 'walk the cat'},
+      {id: 2, task: 'snuggle with pup and cat'}
+    ]
+  }
+
+  deleteTodo = (id) => {
+    console.log(id);
+  }
+
+  render() {
+    return (
+      <div className="todo-app container">
+        <h1 className="center blue-text">Todos</h1>
+        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
+      </div>
+    );
+  }
+}
+```
+
+Now, we have access to the ```deleteTodo``` function in Todos.js. We need to grab it from the props object first onto the ```const Todos = ({todos, deleteTodo})``` and then we can use it.
+
+Next, we nee to attach a click event to the ```<span>``` to the individual item when it's ouptut so that when someone clicks on it, it'll delete it by firing the ```deleteTodo``` function. So, give it an ```onClick={}``` handler and pass in ```deleteTodo``` inside the curly braces, but remember to also include ```todo.id``` since the id is store on todo, which we're cycling through at that moment in time. Also! Remember to wrap this around in an anonymous function to prevent automatic invokation.
+
+<kbd>![alt text](img/onclicklog.png "screenshot")</kbd>
+
+So, it works! When we click on the todo item, it'll log out the ```id```. But, now, we need to actually delete them from the UI and the ```state```.
