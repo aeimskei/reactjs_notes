@@ -290,4 +290,40 @@ export default App;
 
 ## Add to the todoList in ```state``` and UI
 
-We need to make a function inside the Root Component.
+We need to make a function inside the Root Component bc it needs to interact with the ```state``` of ```todos[...]``` in App.js.
+
+Create a function in App.js called ```addTodo``` and it'll take in a paramter of ```todo```, the new todo bc we want to add it to the list. Inside the function, we need to take this ```todo``` and add it. But, before we do that, we need to call this function in AddTodo.js component. So, we'll pass this ```addTodo``` function as a prop and we'll name it ```addTodo``` and make it equal to ```{this.addTodo}``` so it'll look like this, ```<AddTodo addTodo={this.addTodo} />```.
+
+Now, inside AddTodo.js, instead of logging to the console, we'll say, ```this.props.addTodo(this.state)``` to call that function. We'll also pass ```this.state``` from this AddTodo.js component into that function in App.js.
+
+We'll receive that object, of new todo, over at App.js and we can do something with it in the ```addTodo``` function, it's being passed in as the ```todo``` the parameter to the ```addTodo``` function, which will then be added to the ```todos[...]``` array.
+
+Before we do that adding todo into the todos array, we'll need to generate a unqiue id, let's just use the random number method.
+
+**App.js**
+```
+...
+addTodo = (todo) => {
+  todo.id = Math.random();
+
+}
+```
+
+Next, create a variable ```let todos``` which wil be our new array to store todos, remember, we can't alter the original ```state``` directly. So we'll make a carbon-copy of the original array with the **spread operator** ```[...]```. We're creating a new array with ```let todos``` and setting is to ```[...this.state.todos]```. Then we'll want to add on the new item, which is ```todo``` the object we recieve in the parameter and which we've also attach a new id to when we wrote ```todo.id = Math.random()```, so now it should look like this, ```[...this.state.todos, todo]```.
+
+Now, we need to set the ```state``` by setting ```todos``` key to the new ```todos``` value. Since key and value are the same name, with ES6, just write ```todos``` one time.
+
+**App.js**
+```
+addTodo = (todo) => {
+  todo.id = Math.random(); // create unqiue id (kinda)
+  let todos = [...this.state.todos, todo]
+  this.setState({
+    todos
+  })
+}
+```
+
+<kbd>![alt text](img/displayupdateui.png "screenshot")</kbd>
+
+It works, and is now displaying in the UI.
