@@ -37,3 +37,12 @@ Then, delete some of the default files that comes with the create-react-app pack
 To demonstrate React Router, we'll need a few different pages and to do so, we'll mock up some more Components. We'll create three component: About, Home and Contact.
 
 Create a new folder/directory to hold all these new Components and call it **components**.
+
+## Home.js - UI/Functional Component
+
+We won't be using ```state``` in this component. We just need to import the React library from react. Then, create a function ```const Home``` is equal to a function ```= () => {...}``` and in the function, all we need to do for now is ```return``` some JSX with a root ```<div>``` with a class of ```container``` from Materialize to stylize, an ```<h4>``` with the title Home and then some content in s ```<p>```. Use the emmet shortcut in VSCode by typing in **lorem** and the hit tab (you can also put a number after and it'll put that amount of dummy lorem content).
+
+Do the same for About.js and Contact.js and change the titles.
+
+Now, we have three components and will represent our three pages to route around for our example.
+
