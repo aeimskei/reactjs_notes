@@ -208,5 +208,27 @@ class App extends Component {
 export default App
 ```
 
-## Dealing with Home component appearing in all routes
+## Dealing with Home component appearing in all url routes
+
+<kbd>![alt text](img/homeissue.png "screenshot")</kbd>
+
+It's doing it bc it see's that we're still a subset route of Home.
+
+```
+<Route path='/' component={Home} />
+<Route path='/about' component={About} />
+<Route path='/contact' component={Contact} />
+```
+
+All the routes has that foreward slash ```/``` so it thinks its a subset of the Home component. However, if we explicitly write the Home component route as ```/home```, we wont get that issue. This is one way to deal around that default issue.
+
+What if we want to change it back to just the foreward slash?
+
+We can do it by changing the attribute ```path='/'``` to ```exact path='/'```.
+
+<kbd>![alt text](img/exactpath.png "screenshot")</kbd>
+
+## Issue with page reloading
+
+We want React to intercept that request and not send it back to the server, just load the component we select.
 
