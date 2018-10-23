@@ -42,7 +42,74 @@ Create a new folder/directory to hold all these new Components and call it **com
 
 We won't be using ```state``` in this component. We just need to import the React library from react. Then, create a function ```const Home``` is equal to a function ```= () => {...}``` and in the function, all we need to do for now is ```return``` some JSX with a root ```<div>``` with a class of ```container``` from Materialize to stylize, an ```<h4>``` with the title Home and then some content in s ```<p>```. Use the emmet shortcut in VSCode by typing in **lorem** and the hit tab (you can also put a number after and it'll put that amount of dummy lorem content).
 
+```
+import React from 'react'
+
+const Home = () => {
+  return(
+    <div className="container">
+      <h4 className="center">Home</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error placeat dolorum eligendi quae magni, perspiciatis deserunt accusamus dolores at. Enim voluptas quia nulla magnam excepturi totam vitae molestiae deserunt iste?</p>
+    </div>
+  )
+}
+
+export default Home
+```
+
 Do the same for About.js and Contact.js and change the titles.
 
 Now, we have three components and will represent our three pages to route around for our example.
+
+## Linking and Navbar.js
+
+Create another component and call it Navbar.js, it also doesn't need state, so it'll be a UI/Functional component. Similar setup as the previous ones.
+
+**Navbar.js**
+```
+import React from 'react'
+
+const Navbar = () => {
+  return(
+    <nav className="nav-wrapper blue darken-3">
+      <div className="container">
+        <a className="brand-logo">RouteApp</a>
+        <ul className="right">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar
+```
+
+Now that the Navbar.js component has been created, we need to import it into the Root Component, App.js nest it inside so we can display on all pages.
+
+**App.js**
+```
+import React, { Component } from 'react'
+import Navbar from './components/Navbar'
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Navbar />
+      </div>
+    );
+  }
+}
+
+export default App
+```
+
+<kbd>![alt text](img/navbar.png "screenshot")</kbd>
+
+## Setup Routes
+
+So when we click on the Navbar for Home, About or Contact, it'll load those components to get us to those pages.
 
