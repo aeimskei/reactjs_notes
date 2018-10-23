@@ -109,7 +109,44 @@ export default App
 
 <kbd>![alt text](img/navbar.png "screenshot")</kbd>
 
-## Setup Routes
+## Setup Routes ```react-router-dom```
 
 So when we click on the Navbar for Home, About or Contact, it'll load those components to get us to those pages.
+
+Now, we need to install React Router in the termainal when you're in the app directory, with ```npm install react-router-dom``` (back then, we had to install two packages for React Router to work, but now, the latest version, you just need one).
+
+This package will allow us to setup the router inside this application. 
+
+We now need to ```import``` this package in the Root Component with:
+
+* **```import { BrowserRouter} from 'react-router-dom'```**
+
+Now we need to use it inside our application by surrounding the entire application inside the JSX with the **BrowserRouter** tag.
+
+**App.js**
+```
+import React, { Component } from 'react'
+import Navbar from './components/Navbar'
+import { BrowserRouter } from 'react-router-dom'
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+
+export default App
+```
+
+We can now add routes inside this tag.
+
+## Loading Routes
+
+Where do we want our routes to be loading inside our application? At what point in the template?
 
