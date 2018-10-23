@@ -150,3 +150,63 @@ We can now add routes inside this tag.
 
 Where do we want our routes to be loading inside our application? At what point in the template?
 
+First, we also need to import ```Route``` from ```'react-router-dom'``` in the curly braces after ```BrowserRouter```.
+
+In App.js, they should be loaded in below the Navbar nested component. Add ```<Route path='/' component={Home} />``` and then we need to import the Home component at the top to know to link it.
+
+**App.js**
+```
+import React, { Component } from 'react'
+import Navbar from './components/Navbar'
+import { BrowserRouter, Route } from 'react-router-dom'
+import Home from './components/Home'
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Route path='/' component={Home} />
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+
+export default App
+```
+
+So, now we have a ```Route``` setup for the Home component. First, we had to setup the ```BrowserRouter``` so that the application inside this tag, all from the ```<div>``` tag and others in it, can use ```Route```. Then, we say that we want the Routes to be loaded below the Navbar component in the template. Grab the component for the Home route and load it in. Whenever a user goes to ```/``` path, then load in that Home component.
+
+Create routes for the rest of the Components :)
+
+**App.js**
+```
+import React, { Component } from 'react'
+import Navbar from './components/Navbar'
+import { BrowserRouter, Route } from 'react-router-dom'
+import Home from './components/Home'
+import About from './components/About'
+import Contact from './components/Contact'
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Route path='/' component={Home} />
+          <Route path='/about' component={About} />
+          <Route path='/contact' component={Contact} />
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+
+export default App
+```
+
+## Dealing with Home component appearing in all routes
+
