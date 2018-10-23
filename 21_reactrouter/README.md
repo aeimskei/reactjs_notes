@@ -24,5 +24,16 @@ Instead, the React Router intercepts, so it doesn't have to go all the way to th
 
 The React Router stops the request from going all the way to server and coming back bc we only need that **index.html** everytime. There's no point of sending it over and over again, instead, it's just injecting the component it needs to show.
 
-# React Router Example
+# React Router Example with RouteApp
 
+Create a new project with ```create-react-app``` and give it a name of ```routeapp```.
+
+Next, go into **index.html** in the **public** directory and add the CDN link to Materialize CSS, put it above the ```<title>``` tag.
+
+Then, delete some of the default files that comes with the create-react-app package like: logo.svg, App.css and App.test.js. Remember to go into **App.js** and remove the references to those files we've just removed. Also, all the default elements inside the root ```<div>``` tag.
+
+## Get into React Router
+
+To demonstrate React Router, we'll need a few different pages and to do so, we'll mock up some more Components. We'll create three component: About, Home and Contact.
+
+Create a new folder/directory to hold all these new Components and call it **components**.
