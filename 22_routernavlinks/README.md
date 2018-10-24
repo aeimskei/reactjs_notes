@@ -31,8 +31,16 @@ const Navbar = () => {
 export default Navbar
 ```
 
-Eveything will still work like before.
+Eveything will still work like before. 
 
+## ```<Link>``` tag Under the Hood
 
+But what it does is prevent the default action from occuring when we click on one of the anchor tags. Similar to ```e.preventdefault()``` to prevent submission of a form.
+
+We don't want the anchor ```<a>``` to happen anymore. Instead, we want react-router-dom to take over and just load in the component based on the URL we're going to. It makes the app a lot smoother and quicker bc we don't have to make a request.
+
+Notice now when you click on the Navbar to change pages, it doesn't reload. Yay!
+
+We should always use the ```<Link>``` tag if we want link to a page, actually a component.
 
 <kbd>![alt text](img/exactpath.png "screenshot")</kbd>
