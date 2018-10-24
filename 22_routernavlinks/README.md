@@ -43,4 +43,33 @@ Notice now when you click on the Navbar to change pages, it doesn't reload. Yay!
 
 We should always use the ```<Link>``` tag if we want link to a page, actually a component.
 
-<kbd>![alt text](img/exactpath.png "screenshot")</kbd>
+## ```<NavLink>``` Explained
+
+When we use this one, it comes with the ```active``` and ```aria-current``` attributes. the previous Link tag doesn't come with it. These attributes show when we are on that Component.
+
+**Navbar.js**
+```
+import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
+
+const Navbar = () => {
+  return(
+    <nav className="nav-wrapper blue darken-3">
+      <div className="container">
+        <a href="/" className="brand-logo hide-on-med-and-down">RouteApp</a>
+        <ul className="right">
+          <li><Link to="/">Home</Link></li>
+          <li><NavLink to="/about">About</NavLink></li>
+          <li><NavLink to="/contact">Contact</NavLink></li>
+        </ul>
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar
+```
+
+<kbd>![alt text](img/navlink.png "screenshot")</kbd>
+
+This is useful if we want to start applying different styles to the active links.
