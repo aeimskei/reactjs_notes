@@ -1,7 +1,11 @@
 import React from 'react'
 
 const Contact = (props) => {
-  console.log(props)
+  // console.log(props) // to see what the props object come with
+
+  setTimeout(() => {
+    props.history.push('/about')
+  }, 2000);
 
   return(
     <div className="container">
