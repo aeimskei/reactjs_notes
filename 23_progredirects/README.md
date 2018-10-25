@@ -54,4 +54,30 @@ In the ```push``` method, it says we can take the argument of ```path```, which 
 
 Run it, and it works! So, this is a programmatic redirect. It's just ```props``` dot ```history``` dot ```push()``` method and where we want it to go to.
 
-## Try Redirect in a Different Component
+## Programmatic Redirect in Navbar Component
+
+Let's try ```setTimeout()``` to get it to do the same thing as the previous example.
+
+**Navbar.js**
+```
+const Navbar = (props) => {
+
+  setTimeout(() => {
+    console.log(props)
+  })
+...
+```
+
+<kbd>![alt text](img/emptyobj.png "screenshot")</kbd>
+
+It logs an empty ```{}``` object. Well, it's bc we don't have the ```react-router-dom``` applied to this component. It has to be wrapped around ```<BrowserRouter>``` to get those properties like ```history``` and ```push```.
+
+Our Navbar component is not in a Route, so it doesn't receive those ```props``` by default, but we can add them in by using a **higher-order component**.
+
+* **Higher Order Component** - it wraps another another and gives or passes on extra powers.
+
+In our example, we're going to apply those properties to ```props``` that's being passed in the function ```const Navbar```. To do this, we have to import the higher order component with ```withRouter``` from ```react-router-dom``` at the top. Then, you'll also export it on the bottom ```withRouter()``` as a function and we pass in ```Navbar``` component as its parameter into that function.
+
+Now, you'll have all those properties that comes with Router.
+
+That's it :)
