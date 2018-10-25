@@ -31,3 +31,9 @@ So, if we were to use ```RandomColor``` function on another component, like Abou
 
 In this example, we're gonna make it get a random color or a class which represents a random color, so it can be styled that way. Inside the function, create an array ```const colors = ['red', 'blue', 'yellow', 'orange', 'green']``` and then we want to randomize which color we want to choose.
 
+Next, create ```const randomColor = colors[]``` with color array notation bc we want the ```colors[]``` to be a random integer to be between 0-4. To randomize, we'll say ```Math.floor(Math.random() * 3)```. Now, it's going to be a random number between 0-4.
+
+When we apply a Materialize CSS class, to change the color, it's always the color name and then -text like ```blue-text```. So, we want to make a className based on the colors in our array. Create ```const className = randomColor + '-text';``` as you can see, we're concatenating in the ```randomColor``` with ```'-text'``` to get that Materialize CSS class.
+
+Remember, we have to return the wrapped component at the end with extra features, or aka super powers, so, we'll return a function and this function will take in the ```props``` which would've been passed into ```WrappedComponent```. For example, if the About.js component recieves any ```props```, then it would be passed into the RandomColor.js component as well.
+
