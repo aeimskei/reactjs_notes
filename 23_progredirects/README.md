@@ -44,7 +44,7 @@ We can see it when we log the ```props``` object in Contact.js to see the extra 
 
 <kbd>![alt text](img/locationmethod.png "screenshot")</kbd>
 
-## Redirect User to a Different Page
+## Redirect User to a Different Page with ```setTimeout()```
 
 In this example, we'll make the User land on the Contact page and then after 2 seconds, redirect them to another page.
 
@@ -52,4 +52,6 @@ To do that, we need to use the ```history``` and ```push``` from it from the obj
 
 In the ```push``` method, it says we can take the argument of ```path```, which in our example, let's have it as ```/about``` and it'll wait 2 seconds to do it in ```setTimeout()```.
 
-Run it, and it works!
+Run it, and it works! So, this is a programmatic redirect. It's just ```props``` dot ```history``` dot ```push()``` method and where we want it to go to.
+
+## Try Redirect in a Different Component
