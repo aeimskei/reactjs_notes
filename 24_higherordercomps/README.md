@@ -33,7 +33,98 @@ In this example, we're gonna make it get a random color or a class which represe
 
 Next, create ```const randomColor = colors[]``` with color array notation bc we want the ```colors[]``` to be a random integer to be between 0-4. To randomize, we'll say ```Math.floor(Math.random() * 3)```. Now, it's going to be a random number between 0-4.
 
-When we apply a Materialize CSS class, to change the color, it's always the color name and then -text like ```blue-text```. So, we want to make a className based on the colors in our array. Create ```const className = randomColor + '-text';``` as you can see, we're concatenating in the ```randomColor``` with ```'-text'``` to get that Materialize CSS class.
+When we apply a Materialize CSS class, to change the color, it's always the color name and then -text like ```blue-text```. So, we want to make a className based on the colors in our array. Create ```const materializeClass = randomColor + '-text';``` as you can see, we're concatenating in the ```randomColor``` with ```'-text'``` to get that Materialize CSS class.
+
+**RandomColor.js**
+```
+  const colors = ['red', 'blue', 'yellow', 'orange', 'green'];
+  const randomColor = colors[Math.floor(Math.random() * 3)];
+  const className = randomColor + '-text';
+```
 
 Remember, we have to return the wrapped component at the end with extra features, or aka super powers, so, we'll return a function and this function will take in the ```props``` which would've been passed into ```WrappedComponent```. For example, if the About.js component recieves any ```props```, then it would be passed into the RandomColor.js component as well.
 
+So, this function needs to return some JSX, and it could return just the wrapped component or we can surround that wrapped component with other JSX.
+
+**RandomColor.js**
+```
+return (props) => {
+  return (
+    <div className={materializeClass}></div>
+  )
+}
+```
+
+The ```<div>``` will have a ```className={materializeClass}``` with curly braces bc we want to return something dynamic. Then, this ```<div>``` is going to surround the ```WrappedComponent```.
+
+**RandomColor.js**
+```
+import React from 'react'
+
+const RandomColor = (WrappedComponent) => {
+
+  const colors = ['red', 'blue', 'yellow', 'orange', 'green'];
+  const randomColor = colors[Math.floor(Math.random() * 3)];
+  const materializeClass = randomColor + '-text';
+
+  return (props) => {
+    return (
+      <div className={materializeClass}>
+        <WrappedComponent />
+      </div>
+    )
+  }
+
+}
+
+export default RandomColor
+```
+
+So now, when we return this RandomColor component, it should return the About component, but there's going to be and extra ```<div>``` arround:
+
+**About.js**
+```
+const About = () => {
+  return(
+    <div className="container">
+      <h4 className="center">About</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error placeat dolorum eligendi quae magni, perspiciatis deserunt accusamus dolores at. Enim voluptas quia nulla magnam excepturi totam vitae molestiae deserunt iste?</p>
+    </div>
+  )
+}
+```
+
+And that ```<div>``` is going to have a ```className``` of the class colors from Materialize CSS based on the colors in the array we created.
+
+## What about the ```props```
+
+If RandomColor.js recieves ```props```, well, in order to access and use them, inside the About.js component, passed in as parameter, then we need to need to pass them down into the ```<WrappedComponent />``` line in RandomColor.js. The way to do that is with ```{}``` curly braces and then the ```...``` spread operator and ```props``` like: ```<WrappedComponent {...props}/>```
+
+Remember to ```export``` the component at the bottom in RandomColor.js
+
+Also, remember to ```import``` on top in the About.js component.
+
+**About.js**
+```
+import React from 'react'
+import RandomColor from '../hoc/RandomColor'
+
+const About = () => {
+  return(
+    <div className="container">
+      <h4 className="center">About</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error placeat dolorum eligendi quae magni, perspiciatis deserunt accusamus dolores at. Enim voluptas quia nulla magnam excepturi totam vitae molestiae deserunt iste?</p>
+    </div>
+  )
+}
+
+export default RandomColor(About)
+```
+
+<kbd>![alt text](img/randomcolortext.png "screenshot")</kbd>
+
+Each time you refresh, you'll get a different random color on the text.
+
+We've created a custom higher order component which is giving the text a random color each time and all there is to it, is to create a function, pass in the ```WrappedComponent``` as its parameter, do something in here, then return the original component and extra stuff if we want to, and then we export it and we use it on the component itself.
+
+Learn more about higher order compoponents: https://reactjs.org/docs/higher-order-components.html
