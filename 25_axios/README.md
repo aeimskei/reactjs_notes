@@ -65,7 +65,35 @@ export default Home
 
 ## Create ```componentDidMount()```
 
+Above the ```render()``` method, add ```componentDidMount()```.  Inside ```componentDidMount() {...}``` curly braces, this is where we use Axios to go out and grab the data. (NOTE: You can also use Fetch API too)
 
+So first, we need to ```import axios from 'axios'``` at the top of the componet.
 
+Next, where gonna play around the GET request with ```axios.get()```. The first parameter in the GET request will be the http link and the end point we want like, ```axios.get('https://jsonplaceholder.typicode.com/posts')```, and this is **asynchronous**, meaning it takes some time to go and do something, it reutrns a **Promise**. 
 
-<kbd>![alt text](img/randomcolortext.png "screenshot")</kbd>
+  * **Asynchronous** - takes time to do something.
+  * **Promise** - means this action will complete at some point in time and we need to add on ```.then``` method.
+  * **```.then()```** - this method fires once a request like, ```axios.get('https://jsonplaceholder.typicode.com/posts')``` has been completed, so any code we want inside this ```.then()``` method, that will only run after the request has been completed.
+
+### Inside ```.then()``` method
+
+We need to pass a **callback function** when it completes and that callback function takes the **```response``` object** from ```axios.get('https://jsonplaceholder.typicode.com/posts')``` as a parameter. Let's log it into the console to see what we're getting.
+
+**Home.js**
+```
+import React, { Component }from 'react'
+import axios from 'axios'
+
+class Home extends Component {
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+        console.log(response)
+      })
+  }
+...
+```
+
+<kbd>![alt text](img/getreq.png "screenshot")</kbd>
+
+You'll see that we have a property called ```data``` and this is all the data we've recieved from our external API and we're getting 100 posts and each one is an object.
