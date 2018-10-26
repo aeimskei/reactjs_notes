@@ -2,10 +2,16 @@ import React, { Component }from 'react'
 import axios from 'axios'
 
 class Home extends Component {
+  state = {
+    posts: [ ]
+  }
   componentDidMount() {
     axios.get('https://jsonplaceholder.typicode.com/posts')
       .then(response => {
-        console.log(response)
+        // console.log(response) // test
+        this.setState({
+          posts: response.data.slice(0, 10)
+        })
       })
   }
   render() {

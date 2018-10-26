@@ -97,3 +97,14 @@ class Home extends Component {
 <kbd>![alt text](img/getreq.png "screenshot")</kbd>
 
 You'll see that we have a property called ```data``` and this is all the data we've recieved from our external API and we're getting 100 posts and each one is an object.
+
+Next, we need to grab that data and output it to our template. 
+
+## Grab Data and Output to Template via ```state```
+
+First, we need to create a ```state``` locally to this component and inside, the ```state```, we'll have a ```posts``` array. To being, this component will have an empty array for the ```posts``` object bc we don't have that data yet. But, then, when we receive the data, inside our ```.then()``` method, we'll take the data and add it to this ```posts[ ]``` array in ```state```. So then, we can cycle through it inside the template and output it.
+
+We'll need to use ```this.setState({...})``` and inside, we'll need to set the ```posts``` and make it equal to ```response``` dot ```data```. But, if we leave it as ```posts: response.data``` it's going to add all ```100``` posts that came in the response, we don't want all, so let's use the ```slice()``` method to get the first ```10```. We'll start from position ```0``` to ```10```. Now, we've set the ```posts``` property of the ```state```.
+
+## Cycle Through Our ```state``` inside the JSX Template
+
