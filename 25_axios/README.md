@@ -108,3 +108,24 @@ We'll need to use ```this.setState({...})``` and inside, we'll need to set the `
 
 ## Cycle Through Our ```state``` inside the JSX Template
 
+Inside the ```render()``` method, we need to do some **destructuring** to get the ```posts``` property from the ```state```, similar to what we did with ```props``` in the previous examples.
+
+So, we'll create ```const { posts } = this.state``` above ```return(...)``` inside the ```render()``` method. All ```const { posts } = this.state``` is doing is grabbing the ```posts``` property from the ```state```.
+
+Next, we need to check if the ```posts``` property in ```state``` has anyn data inside the array bc when the component first starts, we don't have any data. We have to wait until ```axios.get('https://jsonplaceholder.typicode.com/posts')``` is complete.
+
+We only want to cycle through those ```posts``` if we have data in them. To check, we'll use the **ternerary operator**, so ```const postList = posts.length``` and it's going to be either true or false. If they have no length, then it's going to be false. If we do have length, then it'll be true. ```const postLists = posts.length ? (true) : (false)```. Remember, we return JSX for each of them if we want to depending on if we have posts yet.
+
+When we don't have any posts yet, let's just return this JSX:
+
+```
+<div className="center">There are no posts yet.</div>
+```
+
+If we do have posts, we want to cycle through, so we'll use the ```map()``` method to do that. We'll return a JSX template with ```<div className="post card" key={} >``` and remember to include the unique id.
+
+```
+
+```
+
+<kbd>![alt text](img/postids.png "screenshot")</kbd>

@@ -15,6 +15,18 @@ class Home extends Component {
       })
   }
   render() {
+    const { posts } = this.state
+    const postList = posts.length ? (
+      posts.map(post => {
+        return(
+          <div className="post card" key={post.id} >
+
+          </div>
+        )
+      })
+    ) : (
+      <div className="center">There are no posts yet.</div>
+    )
     return(
       <div className="container">
         <h4 className="center">Home</h4>
