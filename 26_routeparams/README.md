@@ -89,3 +89,58 @@ Next, let's create ```state``` and set it to an object and we'll store a propert
 
 We're keeping track of the URL ```id``` inside ```state``` of this component.
 
+**Post.js**
+```
+import React, { Component } from 'react'
+
+class Post extends Component {
+  state = {
+    id: null
+  }
+  componentDidMount() {
+    // console.log(this.props) // test
+    let id = this.props.match.params.post_id
+    this.setState({
+      id: id
+    })
+  }
+ ... 
+```
+
+<kbd>![alt text](img/setstate.png "screenshot")</kbd>
+
+## Template, Output the id
+
+```
+import React, { Component } from 'react'
+
+class Post extends Component {
+  state = {
+    id: null
+  }
+  componentDidMount() {
+    // console.log(this.props) // test
+    let id = this.props.match.params.post_id
+    this.setState({
+      id: id
+    })
+  }
+  render() {
+    return(
+      <div className="container">
+        <h4>{ this.state.id }</h4>
+      </div>
+    )
+  }
+}
+
+export default Post
+```
+
+<kbd>![alt text](img/outputid.png "screenshot")</kbd>
+
+Whenever you change the URL ```id```, it's going to change it in the template as well.
+
+This is the basics of Route Parameters and how to grab that Route Parameter inside a component.
+
+Next, we'll learn how to set up the links from when we're outputting each individual posts from Home.js component when the user click on that post.

@@ -14,7 +14,7 @@ class Post extends Component {
   render() {
     return(
       <div className="container">
-        <h4>Route Parameter</h4>
+        <h4>{ this.state.id }</h4>
       </div>
     )
   }
