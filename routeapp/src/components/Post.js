@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Post extends Component {
 
   componentDidMount() {
-    console.log(this.props) // test
+    // console.log(this.props) // test
     let id = this.props.match.params.post_id
   }
 

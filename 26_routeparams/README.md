@@ -65,11 +65,20 @@ How do we identify the Route Parameter inside Post.js component, so we know what
 
 In Post.js, add the ```componentDidMount()``` function above the ```render()``` method. Test it out with console.log to see what we get. Remember, we automatically get ```props``` in Class-based components and when this component is being used as a Route, then we get access to that extra route info on the **props object** automatically.
 
+The way we find the Route Parameter is by using the extra info that the React Router provides to us on the ```props``` object. So, we can grab that by saying ```this.props.match.params``` and then the name of our Route Parameter. Inside App.js, we called our Route Parameter ```post_id```, so here, we need to say ```this.props.match.params.post_id```
+
 **Post.js**
 ```
 componentDidMount() {
   console.log(this.props) // test
+  let id = this.props.match.params.post_id
 }
 ```
 
-The way we find the Route Parameter is by using the extra info that the React Router provides to us on the ```props``` object. So, we can grab that by saying ```this.props.match.params``` and then the name of our Route Parameter. Inside App.js, we called our Route Parameter ```post_id```, so here, we need to say ```this.props.match.params.post_id```
+<kbd>![alt text](img/matchparams.png "screenshot")</kbd>
+
+You see that we have an Object that comes with different properties. In the ```match``` property, inside of it, there's a property called ```params``` and also our property that we created ```post_id``` and it's grabbing the value of the ending of the URL.
+
+<kbd>![alt text](img/paramsid.png "screenshot")</kbd>
+
+So, inside a component, we can identify what the Route Parameter is and that's is awesome! Then, inside the component, we knew which post to go out and grab using some kind of HTTP request.
