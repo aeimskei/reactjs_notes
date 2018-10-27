@@ -30,11 +30,31 @@ For ```path=```, how do we define that we're expecting a Route Parameter? Someth
 
 Also, create the component, ```component={Post}```. Remember to create a Post.js file as well.
 
-## Create Post.js
+## Create Post.js Component
 
+We'll be using ```state``` here, so we'll need to have this component be a Class-based component.
 
+**Post.js**
+```
+import React, { Component } from 'react'
 
+class Post extends Component {
+  render() {
+    return(
+      <div className="container">
+        <h4>Route Parameter</h4>
+      </div>
+    )
+  }
+}
 
+export default Post
+```
 
+When this component is loaded up, we're gonna try to identify what the Route Parameter is bc we need to know that post ```id``` in order to know what post we want to show here, we need to know the ```id``` of that post, so we can request it.
 
-<kbd>![alt text](img/screenshot.png "screenshot")</kbd>
+Go back to App.js and import the Post.js component and also add it in the Route line with ```component={...}```.
+
+<kbd>![alt text](img/dummyroute.png "screenshot")</kbd>
+
+Run it and test it out and we'll see the ```<h4>``` title that we hard coded in for now. 
