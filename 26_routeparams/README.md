@@ -144,3 +144,35 @@ Whenever you change the URL ```id```, it's going to change it in the template as
 This is the basics of Route Parameters and how to grab that Route Parameter inside a component.
 
 Next, we'll learn how to set up the links from when we're outputting each individual posts from Home.js component when the user click on that post.
+
+## Link-up Different Posts from Home.js to Individual Post page
+
+First, in Home.js, we need to surround the title of the post with a ```<Link>``` tag, and that'll link us to that separate component. In the two property, we need to pass through as a Route Parameter the ```id``` of each one of the posts.
+
+We have access to those ```id``` bc we output the id into the ```key``` in:
+
+**Home.js**
+```
+...
+  render() {
+    const { posts } = this.state
+    const postList = posts.length ? (
+      posts.map(post => {
+        return(
+          <div className="post card" key={post.id} >
+            <div className="card-content">
+              <span className="card-title">{post.title}</span>
+              <p>{post.body}</p>
+            </div>
+          </div>
+        )
+      })
+  ...    
+```
+
+So next, we need to surround the ```<span className="card-title">{post.title}</span>``` with a ```<Link>``` tag in the two property of that Link tag, we need to say ```post.id```
+
+First, we need to import the ```<Link>``` tag from the React Router package with ```import { Link } from 'react-router-dom'```. Now we can use the Link tag in our template surrounding the ```<span>``` tag. 
+
+The Link property of ```to={...}``` is going to equal to something dynamic to dynamically input the post id. Inside the curly braces, we'll have ```'/'``` and concatenate ```+``` with a ```post.id```. The result here is going to something like ```/1``` or ```/2``` relevant to the post id.
+
