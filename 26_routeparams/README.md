@@ -58,3 +58,18 @@ Go back to App.js and import the Post.js component and also add it in the Route 
 <kbd>![alt text](img/dummyroute.png "screenshot")</kbd>
 
 Run it and test it out and we'll see the ```<h4>``` title that we hard coded in for now. 
+
+## ```componentDidMount()``` Hook to Fetch Data in Post.js
+
+How do we identify the Route Parameter inside Post.js component, so we know what data to fetch?
+
+In Post.js, add the ```componentDidMount()``` function above the ```render()``` method. Test it out with console.log to see what we get. Remember, we automatically get ```props``` in Class-based components and when this component is being used as a Route, then we get access to that extra route info on the **props object** automatically.
+
+**Post.js**
+```
+componentDidMount() {
+  console.log(this.props) // test
+}
+```
+
+The way we find the Route Parameter is by using the extra info that the React Router provides to us on the ```props``` object. So, we can grab that by saying ```this.props.match.params``` and then the name of our Route Parameter. Inside App.js, we called our Route Parameter ```post_id```, so here, we need to say ```this.props.match.params.post_id```
