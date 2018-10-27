@@ -82,3 +82,10 @@ You see that we have an Object that comes with different properties. In the ```m
 <kbd>![alt text](img/paramsid.png "screenshot")</kbd>
 
 So, inside a component, we can identify what the Route Parameter is and that's is awesome! Then, inside the component, we knew which post to go out and grab using some kind of HTTP request.
+
+## Create ```state``` in Post.js Component
+
+Next, let's create ```state``` and set it to an object and we'll store a property calle ```id```. To start for this property, when the component first loads, it's gonna be ```null```, but then when ```componentDidMount()``` fires, we're gonna grab the ```id``` from the URL and we're going to ```setState()``` so that the ```id``` in ```state``` then becomes the ```id``` from the URL.
+
+We're keeping track of the URL ```id``` inside ```state``` of this component.
+
