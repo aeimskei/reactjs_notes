@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class Post extends Component {
   state = {
@@ -7,6 +8,7 @@ class Post extends Component {
   componentDidMount() {
     // console.log(this.props) // test
     let id = this.props.match.params.post_id
+    
     this.setState({
       id: id
     })

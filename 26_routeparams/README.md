@@ -185,3 +185,8 @@ The titles are now blue bc default style for links.
 <kbd>![alt text](img/postpage.png "screenshot")</kbd>
 
 When we click on the title link, it takes us to the post's id page associated to the post we clicked on. We get the id and it's output to the page. Each time we click on a different post, it's a different id.
+
+## Output Post Data Instead of Just Id
+
+In Post.js, we need to import axios so we can make that HTTP request to grab individual post id from JSON Placeholder address like how we did before in Home.js get request.
+
