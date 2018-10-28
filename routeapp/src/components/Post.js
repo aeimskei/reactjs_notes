@@ -7,8 +7,9 @@ class Post extends Component {
   }
   componentDidMount() {
     // console.log(this.props) // test
+
     let id = this.props.match.params.post_id
-    
+    axios.get('https://jsonplaceholder.typicode.com/posts' + id)
     this.setState({
       id: id
     })

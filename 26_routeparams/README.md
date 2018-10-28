@@ -190,3 +190,4 @@ When we click on the title link, it takes us to the post's id page associated to
 
 In Post.js, we need to import axios so we can make that HTTP request to grab individual post id from JSON Placeholder address like how we did before in Home.js get request.
 
+Inside ```componentDidMount()``` below our let id variable, make the get request with Axios, ```axios.get('https://jsonplaceholder.typicode.com/posts')``` and we will concatenate 
