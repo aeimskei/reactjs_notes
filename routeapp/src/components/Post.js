@@ -7,7 +7,6 @@ class Post extends Component {
   }
   componentDidMount() {
     // console.log(this.props) // test
-
     let id = this.props.match.params.post_id
     axios.get('https://jsonplaceholder.typicode.com/posts/' + id)
       .then(response => {
@@ -26,7 +25,6 @@ class Post extends Component {
     ) : (
       <div className="center">Post is loading...</div>
     )
-
     return(
       <div className="container">
         { post }
