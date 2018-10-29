@@ -190,4 +190,42 @@ When we click on the title link, it takes us to the post's id page associated to
 
 In Post.js, we need to import axios so we can make that HTTP request to grab individual post id from JSON Placeholder address like how we did before in Home.js get request.
 
-Inside ```componentDidMount()``` below our let id variable, make the get request with Axios, ```axios.get('https://jsonplaceholder.typicode.com/posts')``` and we will concatenate 
+Inside ```componentDidMount()``` below our let id variable, make the get request with Axios, ```axios.get('https://jsonplaceholder.typicode.com/posts/')``` to go out and get the posts, but at the end, we want to add on the ```id``` that we grabbed from the Route with ```this.props.match.params.post_id```. 
+
+<kbd>![alt text](img/reqpostid.png "screenshot")</kbd>
+
+When we make this request to JSON Placeholder, it's going to send back a **JSON object** for that one individual post. 
+
+With that said, we no longer need to store the ```id``` in the ```state``` like how we previously had. Instead, we should store the individual post that we get back. So, in ```state``` change from the property of ```id``` to ```post```. The ```state``` property of ```post``` is going to begin with ```null```, but once we make the ```axios.get``` request, we can add on the ```.then()``` method and update the property ```post``` in ```state```.
+
+Because we recieve that **response** and we can use that inside the **callback function** in the ```.then()``` method.  
+
+**Post.js**
+```
+class Post extends Component {
+  state = {
+    post: null
+  }
+  componentDidMount() {
+    let id = this.props.match.params.post_id
+    axios.get('https://jsonplaceholder.typicode.com/posts/' + id)
+      .then(response => {
+        this.setState({
+          post: response.data
+        })
+      })
+  }
+```
+
+We ```setState()``` of property ```post``` to ```response.date``` bc all of the data we get back from **response** is on the **data** property when we say ```response.data```.
+
+Let's log it out to see what our ```response``` looks like.
+
+When you click on one of the posts on the Home page, it'll take you to a page for the individul post, and you'll see the ```response``` data when you open the console.
+
+<kbd>![alt text](img/responsedata.png "screenshot")</kbd>
+
+We can see that inside the ```data``` property, we have a ```body```, ```id```, ```title```, etc.
+
+## Output ```response.data``` onto the Post Page
+
