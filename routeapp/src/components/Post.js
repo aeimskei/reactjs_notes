@@ -14,13 +14,22 @@ class Post extends Component {
         this.setState({
           post: response.data
         })
-        console.log(response)
+        // console.log(response) // test
       })
   }
   render() {
+    const post = this.state.post ? (
+      <div className="post">
+        <h4 className="center">{this.state.post.title}</h4>
+        <p>{this.state.post.body}</p>
+      </div>
+    ) : (
+      <div className="center">Post is loading...</div>
+    )
+
     return(
       <div className="container">
-        
+        { post }
       </div>
     )
   }
