@@ -233,3 +233,4 @@ First, we need to check if the post exist, if it does, output in a JSX template.
 
 If ```const post = this.state.post``` is true, we have a ```post``` in the ```state```, and we set it after this request has been made, then post is true, else, it's going to be ```null``` and is false. So, the first condition is going to be for the case of true (the template), and then false (null).
 
+<kbd>![alt text](img/post.png "screenshot")</kbd>
