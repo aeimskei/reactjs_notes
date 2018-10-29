@@ -234,3 +234,34 @@ First, we need to check if the post exist, if it does, output in a JSX template.
 If ```const post = this.state.post``` is true, we have a ```post``` in the ```state```, and we set it after this request has been made, then post is true, else, it's going to be ```null``` and is false. So, the first condition is going to be for the case of true (the template), and then false (null).
 
 <kbd>![alt text](img/post.png "screenshot")</kbd>
+
+But, we now have a problem with the Contact page, it's also still showing the post content, that's bc it's treating it as the same URL as our Post page. We'll fix it next.
+
+<kbd>![alt text](img/contactissue.png "screenshot")</kbd>
+
+Remember, in App.js, we setup the URL to be ```/:post_id``` in ```<Route path='/:post_id' component={Post} />```, so, whatever we put after the ```/```, it's going to treat it as a ```post_id```. We need to address this issue in dealing with the Contact and About pages.
+
+# Switch Tag
+
+We need to make it clearer that ```<Route path='/:post_id' component={Post} />``` has to be a number or it can't be the Contact or About or whatever page.
+
+Creating a condition that only loads one of the two, if it's one thing or the other.
+
+## Way 1, Restructure the URL Path
+
+One way is to change to ```<Route path='/post/:post_id' component={Post} />``` in App.js and then change the ```<Link to={'/' + post.id}>``` in Home.js to ```<Link to={'/post/' + post.id}>```
+
+**App.js**
+```
+<Route path='/post/:post_id' component={Post} />
+```
+
+**Home.js**
+```
+<Link to={'/post/' + post.id}>
+  <span className="card-title">{post.title}</span>
+</Link>
+```
+
+## Way 2, With a **Switch Tab**
+
