@@ -217,7 +217,7 @@ class Post extends Component {
   }
 ```
 
-We ```setState()``` of property ```post``` to ```response.date``` bc all of the data we get back from **response** is on the **data** property when we say ```response.data```.
+We ```setState()``` of property ```post``` to ```response.data``` bc all of the data we get back from **response** is on the **data** property when we say ```response.data```.
 
 Let's log it out to see what our ```response``` looks like.
 
