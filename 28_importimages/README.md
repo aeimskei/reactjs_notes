@@ -8,5 +8,7 @@ Next, we need to ```import``` that image, give it a name, ```from```, then we ju
 
 Then, we use the name that we created for the image in the JSX template. We want to output it for each individual post. In the ```<img>``` tag, for the ```src="..."```, it's going to be the image name we gave to the image file ```StickyNote``` in cruly braces, remove the default quotes that comes with ```src```.
 
+<kbd>![alt text](img/image.png "screenshot")</kbd>
 
-<kbd>![alt text](img/screenshot.png "screenshot")</kbd>
+## Edit Image Styling in CSS 
+
