@@ -12,3 +12,22 @@ Then, we use the name that we created for the image in the JSX template. We want
 
 ## Edit Image Styling in CSS 
 
+Go to **index.css** to add styling to image.
+
+```
+.home .post img {
+  position: absolute;
+  top: -54px;
+  left: -152px;
+  opacity: 0.6;
+}
+
+.home .post {
+  overflow: hidden;
+  padding-left: 100px;
+}
+```
+
+<kbd>![alt text](img/styleimage.png "screenshot")</kbd>
+
+Now, we have a little image on the side of each individual posts.
