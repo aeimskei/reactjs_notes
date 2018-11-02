@@ -61,3 +61,15 @@ First, decide what you want to make a change in, then we **dispatch** an **actio
 * **Payload** - is any kind of data that we want to pass along with it, the dispatched action
 
 In the case of adding a new blog, we'd want to pass along that new date, the new blog, with the **dispatch**. We're dispatching an **action** which describes the change we're gonna make and some extra data, the **payload**, which is the data we want to add.
+
+**III.) Reducer**
+
+Next, pass the **action** to the **reducer**. The reducer looks at the type and identifies what kind of action needs to take place (ex. this is an add blog action). 
+  
+So, next the **reducer** will take the data that's been passed to it and then it's going to go to the **central datat store**, the ```state```, and will update it from there.
+
+* **Reducer** - is the thing that takes the **action** and actually updates the **central data store**.
+
+All the changes are going to be made from between **reducer** to the **Redux central data store**. The changes are not going to be made from Redux to the components. It has to go through a process as explained.
+
+Next, we'll learn how to code and setup the **Redux store**.
