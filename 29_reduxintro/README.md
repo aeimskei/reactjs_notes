@@ -32,3 +32,21 @@ There no need of data being passed between different components around the whole
 
 This is a simple example of how Redux solves the problem of components grabbing data.
 
+## Changing Data in Redux
+
+If we wanted to change the data, we can do it from the components. For example, the Sidebar component can make a change to the data, so the change from there will also be updated for the data that's also displayed in the Blog and Latest Blogs component - pretty much every component in which that particular data is displayed.
+
+But, the data in Redux cannot be directly edited/changed. There is a process when working with Redux in regards to changing the data.
+
+## Process When Working with Redux and Data
+
+<kbd>![alt text](img/reduxchangedata.png "screenshot")</kbd>
+
+First, we define a **central storee** with Redux. That's where our data is going to be kept on that **central ```state```**.  
+
+**Component Access Data**
+
+If a component wants to access some data, the component subscirbes to the changes to that data from Redux, and then, Redux passes the component of that data in the form of ```props``` to that component.
+
+**Changing Data**
+
