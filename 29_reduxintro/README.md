@@ -44,9 +44,20 @@ But, the data in Redux cannot be directly edited/changed. There is a process whe
 
 First, we define a **central storee** with Redux. That's where our data is going to be kept on that **central ```state```**.  
 
-**Component Access Data**
+**I.) Component Access Data**
 
 If a component wants to access some data, the component subscirbes to the changes to that data from Redux, and then, Redux passes the component of that data in the form of ```props``` to that component.
 
-**Changing Data**
+**II.) Process of Changing Data**
 
+If we want to make a change to the data, we can't go directly into Redux to make the change. There's a process so that our application is predictable and we know how to make changes and the application understands the process behind it. It's also much easier to debug if there are errors.
+
+First, decide what you want to make a change in, then we **dispatch** an **action**. 
+
+* **Action** - describes the changes that we want to make. An action could be like add a new blog to add a new item to the for the blog data in the central data store, Redux.
+
+* **Dispatch** - sends out with **action** and with that action, we can pass along an optional **payload**
+
+* **Payload** - is any kind of data that we want to pass along with it, the dispatched action
+
+In the case of adding a new blog, we'd want to pass along that new date, the new blog, with the **dispatch**. We're dispatching an **action** which describes the change we're gonna make and some extra data, the **payload**, which is the data we want to add.
