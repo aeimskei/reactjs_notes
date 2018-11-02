@@ -16,3 +16,19 @@ What we could do in the Blog component, we can reach out, grab some data from an
 
 **What About the Sidebar component?**
 
+We could do the same thing on the Homepage componet as we did for the Blog component, grab data from external source and store it in the ```state```, but that woul be duplicating our code, which is not the best method. Another, would be to start from the Blog component, pass it up to App component and down to Homepage and then Sidebar, but this is also not the good way of doing it.
+
+## Redux: The Central Store of Data
+
+To solve this issue, use **Redux**, which is a central data store, and we can store all of our data that we need for the application that is going to be shared between components inside the **Redux store**, the central store of data.
+
+<kbd>![alt text](img/redux.png "screenshot")</kbd>
+
+So, if this Blog component wants some data of the latest blogs, it can reach out into Redux and grab the data and then pass it down into the Latest Blog component.
+
+Same goes for the Sidebar component, if it wants to get data for the latest blogs, it can reach into Redux central store and grab that data.
+
+There no need of data being passed between different components around the whole application and we also don't need to duplicate our code.
+
+This is a simple example of how Redux solves the problem of components grabbing data.
+
