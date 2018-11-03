@@ -8,9 +8,12 @@ const initState = {
 }
 
 // create reducer
-function reducerFunc(state, action) {
+function reducerFunc(state = initState, action) {
 
 }
 
 // create store
 const store = createStore(reducerfunc);
+
+// create action
+const taskAction = { type: 'ADD_TASK' }
