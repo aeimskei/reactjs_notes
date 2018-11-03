@@ -119,3 +119,5 @@ const taskAction = { type: 'ADD_TASK', task: 'walk the cat' }
 ```
 
 What's happening here is that we're creating an ```action```, which we're going to pass into the ```reducer``` function.
+
+<kbd>![alt text](img/action.png "screenshot")</kbd>
