@@ -16,3 +16,42 @@ So, the **reducer function** and the **redux store** are coupled with each other
 
 ## Create a Simple Redux Store
 
+Use the CDN: ```<script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.5/react-redux.min.js"></script>```
+
+Next, create a **store** so we can get something from the Redux library from our CDN link. It'll enable us to create that store. Create a ```const``` and use destructuring and grab ```createStore``` from Redux. 
+
+```
+const { createStore } = Redux;
+```
+
+Then, create a **store** and make it equal to ```createStore``` which we grab from ```const { createStore } = Redux``` and then invoke that function bc ```createStore()``` is a function.
+
+```
+const store = createStore();
+```
+
+Remember that the **store** is tightly coupled with a **reducer**, and we pass a reducer into the store as a parameter, so that we know that those two are linked together. And, the store knows which reducer is going to be interacting with it. So, we need to pass a reducer to ```createStore()``` as a parameter.
+
+Our **reducer function** is just a that interacts with the **store**, so we'll have to create that function. We'll call it ```reducerfunc``` and this function, inside is going to take two parameters where the it'll interact with the actual store to change the ```state```, but it'll take two parameters. We take the ```state``` and we take the ```action``` as well.
+
+**reducer function**
+```
+function reducerFunc(state, action) {
+
+}
+```
+
+The first parameter, ```state```, is the **state** of the **store**. When the **reducer** first interacts with the **store**, it's not going to know the **state** then it's not going to exist, so we have to create an initial state to begin with for the **store**. Then, when it first states, it passes that initial state into the store via this reducer and it can set as that.
+
+So, we need to create the initial state with ```const iniitState``` and equal to an object with a property of ```tasks``` and starts with an empty array ```[]```. Also, create another property called blogs and also start it with an empty array.
+
+**Initial state**
+```
+const initState = {
+  tasks: [],
+  blogs: []
+}
+```
+
+
+
