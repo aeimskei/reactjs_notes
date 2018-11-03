@@ -27,10 +27,7 @@ const { createStore } = Redux;
 
 Then, create a **store** and make it equal to ```createStore``` which we grab from ```const { createStore } = Redux``` and then invoke that function bc ```createStore()``` is a function.
 
-**app.js**
-```
-const store = createStore();
-```
+<kbd>![alt text](img/createstore.png "screenshot")</kbd>
 
 Remember that the **store** is tightly coupled with a **reducer**, and we pass a reducer into the store as a parameter, so that we know that those two are linked together. And, the store knows which reducer is going to be interacting with it. So, we need to pass a reducer to ```createStore()``` as a parameter.
 
@@ -81,27 +78,9 @@ When this reducer fires, it's going to notice that we don't have a state, that's
 
 We have now, our reducer function set with an initial state, and we've also passed it into the ```createStore(reducerFunc)``` method on ```const store```, and the ```reducerFunc``` is going to interact with it.
 
+<kbd>![alt text](img/reducer.png "screenshot")</kbd>
+
 # Redux Actions
-
-**app.js**
-```
-// grab createStore from Redux library
-const { createStore } = Redux;
-
-// create initial state
-const initState = {
-  tasks: [],
-  blogs: []
-}
-
-// create reducer
-function reducerFunc(state = initState, action) {
-
-}
-
-// create store
-const store = createStore(reducerfunc);
-```
 
 We have our ```store``` created with the ```createStore()``` method and we pass in ``````reducerFunc``` as its parameter, so the ```store``` knows which reducer is going to interact with it.
 
@@ -118,6 +97,8 @@ For example, if we create a new action here, we'll store this in a ```const``` a
 const taskAction = { type: 'ADD_TASK', task: 'walk the cat' }
 ```
 
-What's happening here is that we're creating an ```action```, which we're going to pass into the ```reducer``` function.
+What's happening here is that we're creating an ```action```, which we're going to pass into the ```reducer``` function, we're dispatching it into the reducer function. 
 
 <kbd>![alt text](img/action.png "screenshot")</kbd>
+
+The reducer will take that action, read and see what it's supposed to do, then it'll know it has to add a new task to the state in initState, and the task it needs to add is 'walk the cat'.
