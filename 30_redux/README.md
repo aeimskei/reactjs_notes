@@ -79,26 +79,3 @@ When this reducer fires, it's going to notice that we don't have a state, that's
 We have now, our reducer function set with an initial state, and we've also passed it into the ```createStore(reducerFunc)``` method on ```const store```, and the ```reducerFunc``` is going to interact with it.
 
 <kbd>![alt text](img/reducer.png "screenshot")</kbd>
-
-# Redux Actions
-
-We have our ```store``` created with the ```createStore()``` method and we pass in ``````reducerFunc``` as its parameter, so the ```store``` knows which reducer is going to interact with it.
-
-Remember, our reducer, ```reducerFunc``` is just a function and it takes in the ```state``` which represents the state of the ```store``` with an initial value we created with ```initState```. We also have the ```action``` as its second parameter.
-
-If we want to edit the date in the ```store```, we don't edit it directly, we go through the a process we first have to dispatch an ```action``` into the ```reducer```, so it takes the ```action``` then inside the function, we look at the action and change the state on the store based on the action and remember we have access to the state, so this is where we can update it.
-
-So, we'll need to create an ```action``` next. An ```action``` is just a JavaScript object and it has a type property and that describes the action and it also has an optional ```payload``` of data. 
-
-For example, if we create a new action here, we'll store this in a ```const``` and call it ```taskAction```. We're gonna add tasks using an action. We'll set this equl to a JavaScript object that's what an action is and it has a **type property** with all caps. This describes the type of this action, what it's meant to do, so in this example, we want to add a task. Then, we have an optional ```payload``` of data that we can add to it, here, we'll call it ```task``` and pass the value of a string ```'walk the cat'```.
-
-**app.js**
-```
-const taskAction = { type: 'ADD_TASK', task: 'walk the cat' }
-```
-
-What's happening here is that we're creating an ```action```, which we're going to pass into the ```reducer``` function, we're dispatching it into the reducer function. 
-
-<kbd>![alt text](img/action.png "screenshot")</kbd>
-
-The reducer will take that action, read and see what it's supposed to do, then it'll know it has to add a new task to the state in initState, and the task it needs to add is 'walk the cat'.
