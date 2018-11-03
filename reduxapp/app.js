@@ -16,4 +16,4 @@ function reducerFunc(state = initState, action) {
 const store = createStore(reducerfunc);
 
 // create action
-const taskAction = { type: 'ADD_TASK' }
+const taskAction = { type: 'ADD_TASK', task: 'walk the cat' }
