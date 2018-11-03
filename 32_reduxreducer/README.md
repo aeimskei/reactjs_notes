@@ -7,4 +7,4 @@ We'll need to do an **if statement** check to see what kind of action that we're
 In this case, we want to update with task and then to an empty array bc we don't want to edit the state directly. We'll have to update through a non-destructive way, which is with the spread operator: ```tasks: [...state.tasks, action.todo]```
 
 
-<kbd>![alt text](img/action.png "screenshot")</kbd>
+<kbd>![alt text](img/addtask.png "screenshot")</kbd>

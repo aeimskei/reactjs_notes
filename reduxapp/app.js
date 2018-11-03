@@ -12,7 +12,7 @@ function reducerFunc(state = initState, action) {
   // console.log(action, state) // test
   if (action.type == 'ADD_TASK' ) {
     return {
-      tasks: [...state.tasks, action.todo]
+      tasks: [...state.tasks, action.task]
     }
   }
 }
@@ -25,3 +25,4 @@ const taskAction = { type: 'ADD_TASK', task: 'walk the cat' }
 
 // dispatch action
 store.dispatch(taskAction)
+
