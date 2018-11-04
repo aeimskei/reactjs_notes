@@ -20,6 +20,11 @@ function reducerFunc(state = initState, action) {
 // create store
 const store = createStore(reducerFunc);
 
+// create subscription
+store.subscribe(() => {
+  console.log('state has been updated:', store.getState());
+})
+
 // create action
 const taskAction = { type: 'ADD_TASK', task: 'walk the cat' }
 
