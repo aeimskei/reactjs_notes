@@ -29,4 +29,62 @@ We'll wrap ```<App />``` with ```<Provider>``` and inside that Provider componen
 ```
 ReactDOM.render(<Provider store={ store }><App /></Provider>, document.getElementById('root'));
 ```
-<kbd>![alt text](img/storesubscription.png "screenshot")</kbd>
+<kbd>![alt text](img/passstore.png "screenshot")</kbd>
+
+## Need Reducer to Put into the Store
+
+The **reducer** is responsible for interacting with the **store**. Go into the ```src``` folder/directory and create a new folder/directory inside of it and call it ```reducers```.
+
+The reason we're creating a ```reducers``` folder bc when the application gets bigger, we'll have more than one **reducer**. As we get more components and more data, we may need to create separate reducers for each individual part of data, then at the end, combine those reducers into one single reducer, which we then pass into the **store**. We won't show this kind of example yet of combining reducers (later on we will).
+
+For now, we're just going to have one root reducer. So, inside the ```reducers``` folder, since we're only working with one, create a new .js file and lets call is ```rootReducer```.
+
+Inside here, we'll need to create that reducer function. Remember, inside the function, we take the ```state``` as the first parameter, and an ```action``` as the second. Then, inside the function, we'll just return the ```state```.
+
+Remember, the first time the reducer runs, the ```state``` has not been defined yet, so we need to give it a default value. So to do that, we need to create an initial state.
+
+**rootReducer.js**
+```
+const initState = {
+  blogs: []
+}
+
+const rootReducer = (state = initState, action) => {
+  return state;
+} 
+```
+
+So now, the first time this runs, the store is being setup, we'll pass the ```initState```, the default value to be the ```state```, which is defined in ```initState``` object.
+
+Next, we need to ```export``` our reducer.
+
+**rootReducer.js**
+```
+const initState = {
+  blogs: []
+}
+
+const rootReducer = (state = initState, action) => {
+  return state;
+} 
+
+export default rootReducer;
+```
+
+## Associate Reducer with Store
+
+Now, we need to go back to **index.js** and import our newly created ```rootReducer```, so that we can pass it into ```const store = createStore()```. To import, we want ```import rootReducer from``` dot forward slash ```./``` to say we're inside the current directory, then into the ```reducers``` directory and then the ```rootReducer``` file.
+
+**index.js**
+```
+import rootReducer from './reducers/rootReducer'
+```
+
+We can now pass in ```rootReducer``` to ```createStore()``` function:
+
+**index.js**
+```
+const store = createStore(rootReducer);
+```
+
+Now, we've officially associated the reducer called ```rootReducer``` to our ```store```. Then, we're passing that ```store``` into the ```Provider``` tag, which is wrapping our App tag and providing access to the store, into our React application.
