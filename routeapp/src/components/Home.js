@@ -2,7 +2,7 @@ import React, { Component }from 'react'
 // import axios from 'axios' // use only without Redux
 import { Link } from 'react-router-dom'
 import StickyNote from '../sticky_notes.png'
-
+import { connect } from 'react-redux'
 
 class Home extends Component {
   
@@ -50,4 +50,10 @@ class Home extends Component {
   }
 }
 
-export default Home
+const mapStateToProps = (state) => {
+  return {
+    blogs: state.blogs
+  }
+}
+
+export default connect(mapStateToProps)(Home)
