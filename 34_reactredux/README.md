@@ -16,7 +16,17 @@ We need to import the store from the Redux library with ```import {createStore }
 
 ## How Does React Interact with Our Redux Store?
 
+How do we associate the **store** with our React application? To do that, the ```react-redux``` package that we installed helps us with that. What we have to import from that package is a component called ```Provider```.
 
+```
+import { Provider } from 'react-redux';
+```
 
+* **Provider** - is a component which we'll have to surround and wrap the ```<App />```, the Root Component, then, we'll pass our store into that ```Provider```, and that will provide our application with the ```store``` so that the store can then interact with it at a later point in time.
 
+We'll wrap ```<App />``` with ```<Provider>``` and inside that Provider component, pass in the ```store``` property and pass in the ```store``` that we created as ```const store = createStore()```.
+
+```
+ReactDOM.render(<Provider store={ store }><App /></Provider>, document.getElementById('root'));
+```
 <kbd>![alt text](img/storesubscription.png "screenshot")</kbd>
