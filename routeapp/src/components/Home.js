@@ -23,7 +23,10 @@ class Home extends Component {
   }
   ======================================== */
   render() {
-    const { posts } = this.state
+    console.log(this.props);
+    // const { posts } = this.state // 'this' no longer exists when using Redux bc no state in the component like before, instead:
+    const { posts } = this.props;
+    
     const postList = posts.length ? (
       posts.map(post => {
         return(
@@ -52,7 +55,7 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    blogs: state.blogs
+    posts: state.posts
   }
 }
 

@@ -8,7 +8,7 @@ We need to create a subscription with ```store.subscribe()```, subcribe is a fun
 // create initial state
 const initState = {
   tasks: [],
-  blogs: []
+  posts: []
 }
 
 // create reducer
@@ -26,7 +26,7 @@ function reducerFunc(state = initState, action) {
 
 It works! We've dispatched the action, then it's passed into the reducer where we update the state and then we've passed back a new state object. Also, because the state has changed and we subscribed to that, then it's going to fire the function inside ```subscribe()``` which we're told it to log a message with the state using ```store.getState()```.
 
-But notice in the log, we only get the tasks and not blogs from the state. The problem is bc when we're returning an object, this is the new state object, so that means we've overwritten the old one. So, it bascially got rid of blogs.
+But notice in the log, we only get the tasks and not posts from the state. The problem is bc when we're returning an object, this is the new state object, so that means we've overwritten the old one. So, it bascially got rid of posts.
 
 In this case, we also have to pass in the info that we want to or need to change. Essentially, the properties in the initial state, just include it in the return in the reducer function as well. 
 
@@ -34,7 +34,7 @@ We can do that by returning ```...state,``` this'll make a copy of the initial s
 
 <kbd>![alt text](img/spreadstate.png "screenshot")</kbd>
 
-Now you can see that we also have blogs.
+Now you can see that we also have posts.
 
 ## Dispatch More Actions
 
@@ -59,7 +59,7 @@ function reducerFunc(state = initState, action) {
   if (action.type == 'ADD_BLOG' ) {
     return {
       ...state,
-      blogs: [...state.blogs, action.blog]
+      posts: [...state.posts, action.blog]
     }
   }
 }

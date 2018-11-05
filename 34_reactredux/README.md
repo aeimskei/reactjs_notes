@@ -46,7 +46,7 @@ Remember, the first time the reducer runs, the ```state``` has not been defined 
 **rootReducer.js**
 ```
 const initState = {
-  blogs: []
+  posts: []
 }
 
 const rootReducer = (state = initState, action) => {
@@ -61,7 +61,7 @@ Next, we need to ```export``` our reducer.
 **rootReducer.js**
 ```
 const initState = {
-  blogs: []
+  posts: []
 }
 
 const rootReducer = (state = initState, action) => {

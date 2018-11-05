@@ -11,7 +11,7 @@ Currently, the ```state``` is empty:
 **rootReducer.js**
 ```
 const initState = {
-  blogs: []
+  posts: []
 }
 ```
 
@@ -20,7 +20,7 @@ We should create some dummy data for this to play around with to start and inter
 **rootReducer.js**
 ```
 const initState = {
-  blogs: [
+  posts: [
     {id: '1', title: 'Three baby kittens', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum.'},
     {id: '2', title: 'How to feed baby kittens', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, amet.'},
     {id: '3', title: 'Tummy time for kittens', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, aspernatur!'}
@@ -75,12 +75,12 @@ If a component wants access to that store, then we need to take some data from t
 
 We have to create a function to do this, and lets call it ```mapStateToProps``` and use the arrow function and inside the parenthese ```()``` pass in ```state``` bc we get access to the state of the store. So, now we can grab stuff from the state and attach them to the props. We do that by returning and object inside the function. 
 
-This object represents the different properties we want to add to the props. For instance, if we want to add a proeprty called ```blogs```, it can be added and make it equal or give it value of ```state.blogs```. You're taking the ```state``` of that store and the ```blogs``` property from the store.
+This object represents the different properties we want to add to the props. For instance, if we want to add a proeprty called ```posts```, it can be added and make it equal or give it value of ```state.posts```. You're taking the ```state``` of that store and the ```posts``` property from the store.
 
 **rootReducer.js**
 ```
 const initState = {
-  blogs: [
+  posts: [
     {id: '1', title: 'Three baby kittens', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, ipsum.'},
     {id: '2', title: 'How to feed baby kittens', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, amet.'},
     {id: '3', title: 'Tummy time for kittens', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, aspernatur!'}
@@ -92,7 +92,7 @@ const initState = {
 ```
 const mapStateToProps = (state) => {
   return {
-    blogs: state.blogs
+    posts: state.posts
   }
 }
 ```
@@ -105,12 +105,29 @@ Next, we need to pass ```mapStateToProps``` inside the ```connect()``` function.
 ```
 const mapStateToProps = (state) => {
   return {
-    blogs: state.blogs
+    posts: state.posts
   }
 }
 
 export default connect(mapStateToProps)(Home)
 ```
 
-When we connect to Redux, it knows what data we want to grab from Redux with ```state.blogs``` and the property that we want to create on our ```props``` object, ```blogs```, that we want to apply that data to.
+When we connect to Redux, it knows what data we want to grab from Redux with ```state.posts``` and the property that we want to create on our ```props``` object, ```posts```, that we want to apply that data to.
 
+## Log Out ```props``` to See What We Get
+
+Next, let's log out the ```props``` inside the component, so we can see that that ```posts``` object has been applied to the ```props``` in Home.js.
+
+<kbd>![alt text](img/logreduxposts.png "screenshot")</kbd>
+
+Where we log the props to the console, we have those Redux posts, the dummy data we created.
+
+<kbd>![alt text](img/reduxposts.png "screenshot")</kbd>
+
+You'll notice now that the posts are the data from our Redux store bc we grabbed those from the props we recieve in ```const { posts } = this.props``` and we're cycling through those.
+
+## Summary
+
+All we're doing is importing the ```{ connect }``` function at the top and then invoking it at the bottom and passing in ```mapStateToProps``` function, that combination return a **higher order component** which wraps our **Home** component and gives it super powers like the ability to connect to Redux.
+
+What we're doing inside of ```mapStateToProps``` function is taking the ```state``` as the parameter and it's of our Redux store and we're applying a ```posts``` property to our ```props``` and we're setting it to ```state.posts``` from our Redux store.
