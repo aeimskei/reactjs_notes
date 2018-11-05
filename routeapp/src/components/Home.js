@@ -1,9 +1,14 @@
 import React, { Component }from 'react'
-import axios from 'axios'
+// import axios from 'axios' // use only without Redux
 import { Link } from 'react-router-dom'
 import StickyNote from '../sticky_notes.png'
 
+
 class Home extends Component {
+  
+  /* =====================================
+  Previous example w/out Redux
+  ========================================
   state = {
     posts: [ ]
   }
@@ -16,6 +21,7 @@ class Home extends Component {
         })
       })
   }
+  ======================================== */
   render() {
     const { posts } = this.state
     const postList = posts.length ? (
