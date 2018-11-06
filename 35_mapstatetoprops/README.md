@@ -131,3 +131,20 @@ You'll notice now that the posts are the data from our Redux store bc we grabbed
 All we're doing is importing the ```{ connect }``` function at the top and then invoking it at the bottom and passing in ```mapStateToProps``` function, that combination return a **higher order component** which wraps our **Home** component and gives it super powers like the ability to connect to Redux.
 
 What we're doing inside of ```mapStateToProps``` function is taking the ```state``` as the parameter and it's of our Redux store and we're applying a ```posts``` property to our ```props``` and we're setting it to ```state.posts``` from our Redux store.
+
+# Blog Post's Detail Page
+
+We need to go to our Post.js component because that's where we setup the layout of the individual pages selected posts once clicked on in the Home page.
+
+What we want to do is connect this Post component to our Redux store and get that individual item of post to show on the individual post page.
+
+In Post.js remove the ```componentDidMoutn()``` section and the ```state```, also the reference to import axois at the top.
+
+## Connect Post Component to Redux Store
+
+To connect this component to the redux store, we need to import:
+
+```
+import { connect } from 'react-redux'
+```
+

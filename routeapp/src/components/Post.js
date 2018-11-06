@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+// import axios from 'axios' // use only without Redux
+import { connect } from 'react-redux'
 
 class Post extends Component {
+  /* =====================================
+  Previous example w/out Redux
+  ========================================
   state = {
     post: null
   }
@@ -16,6 +20,7 @@ class Post extends Component {
         // console.log(response) // test
       })
   }
+  ======================================== */
   render() {
     const post = this.state.post ? (
       <div className="post">
