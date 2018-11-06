@@ -51,4 +51,29 @@ We can see our ```deletePost``` function on the props object when we ```console.
 
 ## Add Button so We Can Delete
 
+**Post.js** in render() metho
+```
+const post = this.props.post ? (
+  <div className="post">
+    <h4 className="center">{this.props.post.title}</h4>
+    <p>{this.props.post.body}</p>
+    <div className="center">
+      <button className="btn red" onClick={this.handleClick}>
+        Delete Post
+      </button>
+    </div>
+  </div>
+ ... 
+```
 
+We create a button in our JSX template and some Materialize class to create the button. We're gonna use the ```onClick={...}``` event with the ```handleClick``` function that we'll create later. We'll say ```this.handleClick``` and we're using ```this``` to refernce the component.
+
+## Create the ```handleClicke``` function for Delete Button
+
+```
+handleClick = () => {
+  this.props.deletePost(this.props.post.id)
+}
+```
+
+We're calling the ```deletePost``` method bc we want to delete the post. We also have to pass in an ```id``` bc this method is expecting an id.

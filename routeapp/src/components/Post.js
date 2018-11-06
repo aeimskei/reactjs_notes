@@ -29,11 +29,21 @@ class Post extends Component {
         <p>{this.state.post.body}</p>
       </div>
     */
-    console.log(this.props) // test to see props
+
+    handleClick = () => {
+      this.props.deletePost(this.props.post.id)
+    }
+
+    // console.log(this.props) // test to see props
     const post = this.props.post ? (
       <div className="post">
         <h4 className="center">{this.props.post.title}</h4>
         <p>{this.props.post.body}</p>
+        <div className="center">
+          <button className="btn red" onClick={this.handleClick}>
+            Delete Post
+          </button>
+        </div>
       </div>
     ) : (
       <div className="center">Post is loading...</div>
