@@ -21,6 +21,11 @@ class Post extends Component {
       })
   }
   ======================================== */
+  
+  handleClick = () => {
+    this.props.deletePost(this.props.post.id)
+  }
+  
   render() {
     /* Without Redux store
     const post = this.state.post ? (
@@ -29,18 +34,13 @@ class Post extends Component {
         <p>{this.state.post.body}</p>
       </div>
     */
-
-    handleClick = () => {
-      this.props.deletePost(this.props.post.id)
-    }
-
-    // console.log(this.props) // test to see props
+    console.log(this.props) // test to see props
     const post = this.props.post ? (
       <div className="post">
         <h4 className="center">{this.props.post.title}</h4>
         <p>{this.props.post.body}</p>
         <div className="center">
-          <button className="btn red" onClick={this.handleClick}>
+          <button className="btn teal" onClick={this.handleClick}>
             Delete Post
           </button>
         </div>

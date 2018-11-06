@@ -7,6 +7,7 @@ const initState = {
 }
 
 const rootReducer = (state = initState, action) => {
+  // console.log(action) // test to see if loggin correct
   return state;
 } 
 

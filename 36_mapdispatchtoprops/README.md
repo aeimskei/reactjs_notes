@@ -58,7 +58,7 @@ const post = this.props.post ? (
     <h4 className="center">{this.props.post.title}</h4>
     <p>{this.props.post.body}</p>
     <div className="center">
-      <button className="btn red" onClick={this.handleClick}>
+      <button className="btn teal" onClick={this.handleClick}>
         Delete Post
       </button>
     </div>
@@ -68,7 +68,13 @@ const post = this.props.post ? (
 
 We create a button in our JSX template and some Materialize class to create the button. We're gonna use the ```onClick={...}``` event with the ```handleClick``` function that we'll create later. We'll say ```this.handleClick``` and we're using ```this``` to refernce the component.
 
-## Create the ```handleClicke``` function for Delete Button
+## Create the ```handleClick``` function for Delete Button
+
+We're calling the ```deletePost``` method bc we want to delete the post. We also have to pass in an ```id``` bc this method is expecting an id bc we sent it inside the action in ```{ dispatch({type: 'DELETE_POST', id: id}) }```.
+
+If you look at the post property inside the logged props object, you see that we also have an ```id``` property, so we grab it by saying ```this.props.post.id```, we're passing the id of that post into this ```handleClick``` function.
+
+<kbd>![alt text](img/idpropertyinobj.png "screenshot")</kbd>
 
 ```
 handleClick = () => {
@@ -76,4 +82,17 @@ handleClick = () => {
 }
 ```
 
-We're calling the ```deletePost``` method bc we want to delete the post. We also have to pass in an ```id``` bc this method is expecting an id.
+So, what we're doing is calling the ```handleClick``` function, which in turns firing the function of ```(id) =>``` inside ```deletePost``` that's inside ```mapDispatchToProps``` function. We're making a dispatch and sending this action ```{type: 'DELETE_POST', id: id}``` the  rootReducer where we recieve the action.
+
+Whenever the action is dispatched, like whenever we click on that Delete Button, then, it's going to receive the action in ```rootReducer```. 
+
+**rootReducer.js**
+```
+const rootReducer = (state = initState, action) => {
+  return state;
+} 
+```
+
+To just see what's going on, let's log it into the console:
+
+<kbd>![alt text](img/click.png "screenshot")</kbd>
