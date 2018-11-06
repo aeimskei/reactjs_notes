@@ -48,3 +48,5 @@ const mapStateToProps = (state, thisProps) => {
 }
 
 export default connect(mapStateToProps)(Post)
+
+

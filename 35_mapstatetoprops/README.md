@@ -183,6 +183,8 @@ We'll need to create another variable, use ```let``` to use those props to grab 
 
 The **wrap parameters** that we want is called ```post_id```. Remember, it's called this bc inside our App.js, in our ```<Route>``` tag, we called it ```path="/:post_id"```, when we setup the Route.
 
+<kbd>![alt text](img/urlpostid.png "screenshot")</kbd>
+
 Next, we can return the object and remember, inside the return curly braces, is what we want to apply to our props for this component. For this component, we want an individual ```post``` and it's going to be equal to the ```state``` from the Redux store, add ```.posts```. Then, we want to find one individual post and we'll use the ```find()``` method to do that.
 
 * ```find()``` - is a normal JavaScript method, used to check if an item matches what we're looking for.
@@ -190,3 +192,8 @@ Next, we can return the object and remember, inside the return curly braces, is 
 Check if the post, that id is equal to the id of ```let id = thisProps.match.params.post_id```. The ```find()``` method is going to cycle through the posts on the state object and it's going to look at the id of each one. If that id matches ```let id = thisProps.match.params.post_id```, if that is true, then it's going to return that post bc that's what we want.
 
 ```find()``` will take the individual ```post``` as a callback function, then inside, we're going to return ```post.id === id```.
+
+<kbd>![alt text](img/returnmatchid.png "screenshot")</kbd>
+
+## Get the Matched Post id to Render
+
