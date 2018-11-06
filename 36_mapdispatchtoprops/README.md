@@ -97,7 +97,7 @@ To just see what's going on, let's log it into the console:
 
 <kbd>![alt text](img/click.png "screenshot")</kbd>
 
-## Actually Delete the Post onClick
+## Delete the Post onClick
 
 We need to check the type of action bc we don't want to delete it for every action, only if the action type is ```'DELETE_POST'```.
 
@@ -126,3 +126,8 @@ When you click on the Delete button, the content is gone.
 
 <kbd>![alt text](img/newstate.png "screenshot")</kbd>
 Go back to the Home page, the post is gone.
+
+## Redirect to the Home Page After Clicking to Delete
+
+Do it inside the Post.js component in the ```handleClick``` function, after the ```this.props.deletePost(this.props.post.id)```, we'll add ```this.props.history``` and then use the method ```push()``` and redirect by adding the link to the path inside the push methond parantheses. For this example, we want to redirect to the Home page, which is ```'/'``` to get to the Home page.
+
