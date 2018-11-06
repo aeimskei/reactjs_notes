@@ -53,6 +53,7 @@ class Home extends Component {
   }
 }
 
+// For Redux store
 const mapStateToProps = (state) => {
   return {
     posts: state.posts
@@ -60,3 +61,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Home)
+
+// export default Home // without Redux

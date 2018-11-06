@@ -45,6 +45,7 @@ class Post extends Component {
   }
 }
 
+// This is for Redux store
 const mapStateToProps = (state, thisProps) => {
   let id = thisProps.match.params.post_id
   return {
@@ -54,6 +55,12 @@ const mapStateToProps = (state, thisProps) => {
   }
 }
 
-export default connect(mapStateToProps)(Post)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deletePost: (id) => { dispatch({type: 'DELETE_POST', id: id}) }
+  }
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(Post)
 
+// export default Post // without Redux
