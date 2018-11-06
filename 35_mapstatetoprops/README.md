@@ -197,3 +197,20 @@ Check if the post, that id is equal to the id of ```let id = thisProps.match.par
 
 ## Get the Matched Post id to Render
 
+In the ```render()``` method, instead, use ```const post = this.props.post``` bc we've attached that post object to the props now.
+
+Also, update the rest of the JSX template for the condition that connects to ```this.props.post``` in the render() method:
+
+**Post.js**
+```
+const post = this.props.post ? (
+  <div className="post">
+    <h4 className="center">{this.props.post.title}</h4>
+    <p>{this.props.post.body}</p>
+  </div>
+)
+```
+
+<kbd>![alt text](img/postidredux.png "screenshot")</kbd>
+
+There you go, it renders the correct matched post id to an individual Post page.
