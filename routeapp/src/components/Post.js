@@ -38,4 +38,13 @@ class Post extends Component {
   }
 }
 
-export default Post
+const mapStateToProps = (state, thisProps) => {
+  let id = thisProps.match.params.post_id
+  return {
+    post: state.posts.find((post) => {
+      return post.id === id
+    })
+  }
+}
+
+export default connect(mapStateToProps)(Post)

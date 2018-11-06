@@ -144,7 +144,49 @@ In Post.js remove the ```componentDidMoutn()``` section and the ```state```, als
 
 To connect this component to the redux store, we need to import:
 
+**Post.js**
 ```
 import { connect } from 'react-redux'
 ```
 
+At the bottom where we export, we want to use that ```connect``` higher order component, it's a function which returns a higher order component and wraps our Post component.
+
+**Post.js**
+```
+export default connect()(Post)
+```
+
+Next, we'll need to create the function to map our state to props, above the export code.
+
+**Post.js**
+```
+const mapStateToProps = (state) => {
+
+}
+```
+
+Inside this function, we want to grab that single individual item that matches that post we clicked on. How do we do that? We can do that by adding a second parameter, let's call it ```thisProps``` and it's refering to the props of this Post component before we attach the additional props from the Redux store.
+
+**Post.js**
+```
+const mapStateToProps = (state, thisProps) => {
+
+}
+```
+
+So, our old props, they're going to have information about the Route, we can grab the ```id``` from the Route. Then we can use that ```id``` to find the 
+specific post/blog that we want to connect to from the state of the Redux store.
+
+We'll need to create another variable, use ```let``` to use those props to grab the ```id``` as ```let id = thisProps.match.params```. 
+
+* ```thisProps.match.params``` - this is where we get the information about the wrap parameters.
+
+The **wrap parameters** that we want is called ```post_id```. Remember, it's called this bc inside our App.js, in our ```<Route>``` tag, we called it ```path="/:post_id"```, when we setup the Route.
+
+Next, we can return the object and remember, inside the return curly braces, is what we want to apply to our props for this component. For this component, we want an individual ```post``` and it's going to be equal to the ```state``` from the Redux store, add ```.posts```. Then, we want to find one individual post and we'll use the ```find()``` method to do that.
+
+* ```find()``` - is a normal JavaScript method, used to check if an item matches what we're looking for.
+
+Check if the post, that id is equal to the id of ```let id = thisProps.match.params.post_id```. The ```find()``` method is going to cycle through the posts on the state object and it's going to look at the id of each one. If that id matches ```let id = thisProps.match.params.post_id```, if that is true, then it's going to return that post bc that's what we want.
+
+```find()``` will take the individual ```post``` as a callback function, then inside, we're going to return ```post.id === id```.
