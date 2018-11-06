@@ -38,9 +38,17 @@ And the additional payload we want to send is the ```id```, so we need to create
 deletePost: (id) => { dispatch({type: 'DELETE_POST', id: id}) }
 ```
 
-<kbd>![alt text](img/recieveid.png "screenshot")</kbd>
+<kbd>![alt text](img/payloadid.png "screenshot")</kbd>
 
 What we're doing is we're dispatching this action ```dispatch({type: 'DELETE_POST', id: id})``` when we call the ```deletePost``` function. This ```deletePost``` function is going to be attached to our props, so we can use it inside our component.
 
 Before we do that, remember to pass ```mapDispatchToProps``` to the ```connect``` function down on the export line code. Make sure it's in this order: ```connect(mapStateToProps, mapDispatchToProps)(ComponentName)```.
+
+**Log our props to the console**
+<kbd>![alt text](img/deletemethod.png "screenshot")</kbd>
+
+We can see our ```deletePost``` function on the props object when we ```console.log(this.props)``` in the render() method. You can see that our ```deletePost``` function also expects an id. 
+
+## Add Button so We Can Delete
+
 
