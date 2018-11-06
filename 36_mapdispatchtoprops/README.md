@@ -96,3 +96,33 @@ const rootReducer = (state = initState, action) => {
 To just see what's going on, let's log it into the console:
 
 <kbd>![alt text](img/click.png "screenshot")</kbd>
+
+## Actually Delete the Post onClick
+
+We need to check the type of action bc we don't want to delete it for every action, only if the action type is ```'DELETE_POST'```.
+
+So, if ```action.type == 'DELETE_POST'```, we're going to update the state in the Redux store. Remember, when we update the state, we don't want to do anything destructive to the original state. We'll use the ```filter()``` method bc it doesn't alter the original array, rather, it creates a new array.
+
+```let newPosts = state.posts.filter()``` and we're gonna filter through the posts. The filter method performs a functions on each individual post, and if we return true for that function, then we keep that post in the the ```newPosts``` array. If it's false, then we filter that post out of the newPost array, it doesn't get added in.
+
+To reiterate, this callback function inside the filter method take the individual post that we're cycling through and what we want to do is check, does this ```post``` id in the callback equal to the id we receive on the action? If it does equal the same thing, then what we want to do is return false bc that will filter out, if they are the same. We want to return true if the action id and the post id are not equal.
+
+So, this ```action.id !== post.id``` is going to be true if the ids are not the the same.
+
+We get the id on the action bc we passed it in Post.js in the ```mapDispatchToProps``` inside the dispatch method as the second parameter.
+
+Next, we need to return a new object which represents the new state. We want to take the current state and we want to spread it ```...state``` so that all of the property from the state are returned inside the object first, and then we overwrite with ```post: newPosts``` the post property with ```newPosts```.
+
+**Initial state**
+<kbd>![alt text](img/initialstate.png "screenshot")</kbd>
+We have all our initial state of dummy data from the Redux store.
+
+<kbd>![alt text](img/postpage.png "screenshot")</kbd>
+There's still info of the micro blog post, data from the Redux store.
+
+**After onClick Delete**
+<kbd>![alt text](img/deletepost.png "screenshot")</kbd>
+When you click on the Delete button, the content is gone.
+
+<kbd>![alt text](img/newstate.png "screenshot")</kbd>
+Go back to the Home page, the post is gone.
