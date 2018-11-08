@@ -23,9 +23,22 @@ In this example, we're just going to create one action to begin with, an action 
 
 * Inside, all that we return is an object that represents the action that we're returning. It has a ```type``` with ````'DELETE_POST'```. It's also going to have an ```id``` property equal to the ```id``` that we receive through the parameter of the function.
 
+**postAction.js**
+```
+export const deletePost = (id) => {
+  return {
+    type: 'DELETE_POST',
+    id: id
+  }
+}
+```
+
 ## Import into Component
 
 Go to Post.js component and import the **action creator** file at the top. Then used this code to use the importer action creator function ```deletePost: (id) => { dispatch(deletePost()) }``` inside the ```mapDispatchToProps``` function. Remember to pass in ```id``` inside the ```deletePost()``` function bc our action creator expects that id.
 
+All this now should work the same as the previous version.
 
-<kbd>![alt text](img/screenshot.png "screenshot")</kbd>
+## Summary
+
+The more you use dispatches in different components, the more you'll be using action creators in this separation of concerns format. Especially when it comes to more complex things like asynchronous tasks to go out and grab some external data.

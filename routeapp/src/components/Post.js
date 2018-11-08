@@ -71,7 +71,7 @@ const mapStateToProps = (state, thisProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     // deletePost: (id) => { dispatch({type: 'DELETE_POST', id: id}) } // version w/out action creator
-    deletePost: (id) => { dispatch(deletePost()) }
+    deletePost: (id) => { dispatch(deletePost(id)) }
   }
 }
 
